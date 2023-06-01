@@ -1,0 +1,589 @@
+
+// color variables
+$brand-color: #D2E0CF !default;
+$header-footer: #202E2F !default;
+$mid-yellow: #E1AE6B !default;
+$white:#F4F4F2 !default;
+$dark-green:#4C5959 !default;
+$black:#141414 !default;
+$pink:#FE4DAA!default;
+$button-color:#648D8F;
+$grey:#a8a8a8;
+
+//fonts variable
+$text-font-stack: 'Kumbh Sans', sans-serif;
+$text-second:'Princess Sofia', cursive;
+
+//text colors variable
+$text-color: rgb(34, 34, 34) !default;
+$sec-text-color:#D2E0CF !default;
+
+//breakpoints
+// $breakpoints: (
+//   'small': 320px,
+//   'medium': 768px,
+//   'large': 1024px,
+// ) !default;
+
+//max and min
+$min_width: 320px;
+$max_width: 1200px;
+$min_font: 16px;
+$max_font: 24px;
+
+//transitions
+$transition: all 300ms ease;
+//container width
+$container-width-lg:78%;
+$container-width-md:88%;
+$form-width:40%;
+
+// ==================General=========================//
+*{
+   margin:0;
+   padding:0;
+   outline:0;
+   border:0;
+   appearance: 0;
+   list-style: none;
+   text-decoration: none; 
+   box-sizing: border-box;
+}
+body{
+    font-family: $text-font-stack;
+    line-height: 1.6;
+    //background: $brand-color;
+    overflow-x: hidden;
+    color:$brand-color;
+    
+
+}
+ul li a{
+    color:$brand-color;
+}
+.container{
+    width: 74%;
+    max-width: 1800px;
+    margin-inline:auto;
+}
+h1,h2,h3,h4,h5{
+    color:$brand-color;
+    line-height: 1.3;
+    
+}
+h1{
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+h2{
+    font-size: 1.7rem;
+    margin: 1rem 0;
+}
+h3{
+    font-size: 1.1rem;
+    margin: 0.8rem 0 0.5rem;
+}
+h4{
+    font-size: 1.3rem;
+    font-weight: 900;
+   
+}
+a{
+    color:$brand-color;
+    transition: $transition;
+}
+img{
+    display: block;
+    width:100%;
+    object-fit: cover;
+}
+
+
+   
+section{
+    margin-top: 3rem;
+    width:100vw;
+}
+.logo{
+    width: 5rem;
+}
+
+//==================================
+// // ================NAV============
+//===================================
+nav{
+    background:$header-footer;
+    width: 100vw;
+    height: 4.5 rem;
+    position:fixed;
+    top:0;
+    z-index:10;
+    box-shadow:0 1rem 1rem rgba(0, 0, 0, 0.2) ;
+    }
+nav button{
+    display:none;
+}
+
+.nav__container{
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.avatar{
+    width:3rem;
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.3rem solid $header-footer;
+}
+.nav__logo{
+    font-weight:600 ;
+    
+}
+.nav__items{
+    display:flex;
+    align-items: center;
+    gap:4rem;
+}
+
+.nav__profile{
+    position: relative;
+    cursor:pointer;
+    ul{
+        position:absolute;
+        top:105%;
+        right:0;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.4);
+        visibility: hidden;
+        opacity: 0;
+        transition: $transition;
+       
+        li {
+            a{
+                padding:1rem;
+                background: $dark-green;
+                display:block;
+                width: 100%;
+                
+            }
+        }
+
+    }
+}
+.nav__profile ul li:last-child a{
+    background: $brand-color;
+    color:$header-footer;
+    
+}
+.nav__profile:hover > ul {
+    visibility: visible;
+    opacity: 1;
+
+}
+/////============search bar================///
+.search__bar{
+    width: 100%;
+    height: 12rem;
+    background: $brand-color;
+    
+}
+.searchbar__container{
+    text-align: center;
+    
+}
+.searchbar__input{
+    
+    background: $dark-green;
+    text-align: center;
+    margin-top: 5rem;
+    //width:350px;
+    //height: 40px;
+    border-radius: 20px;
+    padding:15px 50px;
+    color:$white;
+   
+}
+.searchbar__container input[type=text] {
+    
+        color:$brand-color;
+        padding:10px;
+        width: 29rem;
+        margin-top:80px;
+        background:$dark-green;
+        font-family: $text-font-stack;
+        border-radius: 13px;
+    
+    
+}
+.searchbar__container button{
+        padding:6px;
+        background: $dark-green;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 0 13px;
+        .uil-search{
+            
+            color: $brand-color;
+            
+        }
+       
+}
+.nature-12{
+    width: 140px;
+    height:140px;
+    position: absolute;
+    left:13rem;
+    top:5rem;
+    opacity: 0.8;
+}
+.nature-1{
+    width:130px;
+    height:130px;
+    position: absolute;
+    right:15rem;
+    top:7rem;
+    opacity:0.8;
+
+}
+
+//==================================
+// // ================index hero============
+//===================================
+.hero{
+    background: $dark-green;
+    width:100vw;
+    height: auto;
+    margin:0 auto;
+    .container__hero{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:1.5rem 0;
+    }
+    .hero__title{
+        h1{
+            font-family:$text-second;
+        }
+    }
+      
+    
+    .hero__title .browse__recipe{
+        padding:10px;
+        border-radius: 20px;
+        background:$button-color;
+        //margin:10px 0;
+        color:$brand-color;
+        cursor: pointer;
+      }
+      .browse__recipe:hover{
+   
+            background: $mid-yellow;
+            color:$black;
+            transition: $transition;
+            
+           
+
+      }
+    .hero__image{
+        img{
+            width:350px;
+            height: 350px;
+            border-radius: 50%;
+            
+            
+        }
+    }
+ }
+
+
+
+////=================Marquee section ==========///
+.marquee__section{
+    margin:0 auto;
+    padding:2rem 0;
+    background: $brand-color;
+    height: auto;
+    position: relative;
+    
+}
+.marquee-content{
+    display: flex;
+    position: relative;
+    animation: scrolling 20s linear infinite;
+    
+
+}
+ .marquee-item{
+    flex:0 0 10vw;
+     margin:0 2vw;
+     
+     p{
+        color:$header-footer;
+        text-align: center;
+        
+     }
+     
+ }
+    .marquee-item img{
+        
+        display: block;
+        width:10rem ;
+        height: 10rem;
+        overflow: hidden;
+        border-radius: 50%;
+        padding:10px 0;
+       
+    }
+
+@keyframes scrolling {
+        0% { left: 0%; }
+        100% { left: -100%; }
+      
+}
+
+////=================ABOUT ==========///
+.about{
+    background: $brand-color;
+    width:100vw;
+    height: auto;
+    margin:0 auto;
+    padding:2rem 0;
+    .container__about{
+        display:flex;
+        flex-direction: flext end;
+        //justify-content: s;
+        gap:100px;
+        align-items: center;
+        padding:1.5rem 0;
+    }
+    .about__title{
+        h1{
+            font-family:$text-second;
+            color:$dark-green;
+        }
+        p{
+            color:$dark-green;
+        }
+    }
+      
+    
+    .about__title .join__button{
+        padding:10px;
+        border-radius: 20px;
+        background:$button-color;
+        //margin:10px 0;
+        color:$brand-color;
+        cursor: pointer;
+      }
+      .join__button:hover{
+   
+            background: $mid-yellow;
+            color:$black;
+            transition: $transition;
+            
+           
+
+      }
+    .about__image{
+        img{
+            width:350px;
+            height: 350px;
+            border-radius: 50%;
+            cursor: pointer;
+            :hover{
+                animation: about 20s linear ease-in-out;
+            }
+            
+            
+        }
+    }
+ }
+ @keyframes about{
+    0% {transform: rotate(0deg);}
+    100%{ transform: rotateX('180deg') }
+ }
+ .nature-15{
+    width:130px;
+    height:130px;
+    position: absolute;
+    right:0;
+    top:55rem;
+    opacity:0.8;
+
+}
+
+
+
+
+////=================SHARE RECIPE ==========///
+
+.share__recipe{
+    background-image: url("../images/oreodonut.jpeg");
+    background-size: cover;
+    background-position: center center;
+    margin:0 auto;
+    height: auto;
+    padding:4rem 0;
+    
+}
+.container__share{
+    height: auto;
+    padding: 5rem 0;
+    text-align: center;
+}
+
+    .container__share .share {
+        background:$button-color;
+        padding:10px;
+        border-radius: 20px;
+        color:$brand-color;
+        cursor: pointer;
+        :hover{
+            background: $mid-yellow;
+            color:$black;
+            transition: $transition;
+        }
+    }
+   //============Category Button================= 
+
+   .category__button{
+    background: $grey;
+    display:inline-block;
+    padding:0.5rem 1rem;
+    border-radius:0.3rem;
+    font-weight: 0.8rem;
+    text-align: center;
+   }
+    .category__butoon:hover{
+        color:$black;
+    }
+
+    //============General post================= 
+
+   
+     
+
+
+    
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+//============FOOTER=================
+footer{
+    background: $header-footer;
+    padding:5rem 0 0;}
+    
+    .footer__social {
+        //background: $brand-color;
+        margin-inline: auto;
+        width: fit-content;
+        margin-bottom: 5rem;
+        display:flex;
+        
+     
+        //justify-content: space-around;
+        //align-items: center;
+        gap:1rem;
+        a{ 
+            background: $dark-green;
+            border-radius: 50%;
+            width: 2.6rem;
+            height:2.6rem;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            :hover{
+                background: $black;
+                border-radius:50%;
+                width: 2.6rem;
+                height:2.6rem;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                
+            }
+        }
+       
+    }
+    footer ul li{
+        padding: 0.4rem 0;
+    }
+        
+        .footer__social a .uil {
+            color:$mid-yellow;
+            font-size: 30px;
+           
+        }
+        .footer__container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .footer__copyright{
+            text-align: center;
+        }
+        footer ul a:hover{
+            
+                letter-spacing: 0.2rem;
+            }
+            .shape-7{
+                width:110px;
+                height: 110px;
+                position: absolute;
+                left:0rem;
+                overflow: hidden;
+                //bottom:11rem;
+            }
+            .input__email{
+                margin: 6px auto;
+                background: $dark-green;
+                color:$brand-color;
+                padding:10px 40px;
+                border-radius: 10px;
+                font-family: inherit;
+                
+            }
+            .uil-message{
+                padding:8px;
+                background:none;
+                
+                color:$brand-color;
+                font-size: 23px;
+                position:absolute ;
+                right:300px;
+                rotate: -20deg;
+                :hover{
+                    color:$header-footer;
+                    cursor: pointer;
+                }
+                //bottom:20px;
+
+            }
+
+
+
+//==================================
+// // ================NAV MEDIA QUERIES (MEDIUM)============
+//===================================
+        @media screen and (max-width:1024px){
+            .container{
+                width: $container-width-md;
+
+            }
+        }
+    
+    
