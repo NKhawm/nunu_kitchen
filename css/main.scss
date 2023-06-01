@@ -449,23 +449,52 @@ nav button{
         }
     }
    //============Category Button================= 
-
+   .featured{
+    background: $dark-green;
+    margin:0 auto;
+   }
    .category__button{
-    background: $grey;
+    background: $button-color;
     display:inline-block;
     padding:0.5rem 1rem;
     border-radius:0.3rem;
     font-weight: 0.8rem;
     text-align: center;
    }
-    .category__butoon:hover{
+    .category__button:hover {
         color:$black;
     }
 
     //============General post================= 
+    .post__thumbnail{
+        border: 0.5rem solid $button-color;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 1.6rem;
+        
+    }
+    .post:hover .post__thumbnail img{
+        filter:saturate(0);
+        transition:filter 500ms ease;
+    }
 
+    .post__author{
+        display:flex;
+        gap:1rem;
+        margin-top: 1.2rem;
+    }
+    .post__author-avatar{
+        width:2.5rem;
+        height: 2.5rem;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    
+    //============Featured================= 
    
-     
+     .featured{
+        margin-top: 8rem;
+     }
 
 
     

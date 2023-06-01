@@ -5,8 +5,8 @@ include 'partials/search_bar.php';
 
 
 <section class="featured">
-    <div class="container featured__container">
-        <div class="post__thumbail">
+    <div class="container post">
+        <div class="post__thumbnail">
             <img src="./images/Shweyinaye.png" alt="feature picture">
         </div>
         <div post__info>
