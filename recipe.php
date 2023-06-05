@@ -41,7 +41,7 @@ include 'partials/search_bar.php';
                 <img src="images/biryani.png" alt="biryani">
             </div>
             <div class="post__info">
-                <a href="" class="catagory__button">Asian</a>
+                <a href="" class="category__button">Asian</a>
                 <h3 class="post__title"><a href="post.php">Fried Rice
                     </a>
                 </h3>
@@ -73,7 +73,7 @@ include 'partials/search_bar.php';
                 <img src="images/biryani.png" alt="biryani">
             </div>
             <div class="post__info">
-                <a href="" class="catagory__button">Asian</a>
+                <a href="" class="category__button">Asian</a>
                 <h3 class="post__title"><a href="post.php">Fried Rice
                     </a>
                 </h3>
@@ -105,7 +105,7 @@ include 'partials/search_bar.php';
                 <img src="images/biryani.png" alt="biryani">
             </div>
             <div class="post__info">
-                <a href="" class="catagory__button">Asian</a>
+                <a href="" class="category__button">Asian</a>
                 <h3 class="post__title"><a href="post.php">Fried Rice
                     </a>
                 </h3>
@@ -137,7 +137,7 @@ include 'partials/search_bar.php';
                 <img src="images/biryani.png" alt="biryani">
             </div>
             <div class="post__info">
-                <a href="" class="catagory__button">Asian</a>
+                <a href="" class="category__button">Asian</a>
                 <h3 class="post__title"><a href="post.php">Fried Rice
                     </a>
                 </h3>
@@ -169,7 +169,7 @@ include 'partials/search_bar.php';
                 <img src="images/biryani.png" alt="biryani">
             </div>
             <div class="post__info">
-                <a href="" class="catagory__button">Asian</a>
+                <a href="" class="category__button">Asian</a>
                 <h3 class="post__title"><a href="post.php">Fried Rice
                     </a>
                 </h3>
@@ -201,7 +201,7 @@ include 'partials/search_bar.php';
                 <img src="images/biryani.png" alt="biryani">
             </div>
             <div class="post__info">
-                <a href="" class="catagory__button">Asian</a>
+                <a href="" class="category__button">Asian</a>
                 <h3 class="post__title"><a href="post.php">Fried Rice
                     </a>
                 </h3>
@@ -233,7 +233,7 @@ include 'partials/search_bar.php';
                 <img src="images/biryani.png" alt="biryani">
             </div>
             <div class="post__info">
-                <a href="" class="catagory__button">Asian</a>
+                <a href="" class="category__button">Asian</a>
                 <h3 class="post__title"><a href="post.php">Fried Rice
                     </a>
                 </h3>
@@ -265,7 +265,7 @@ include 'partials/search_bar.php';
                 <img src="images/biryani.png" alt="biryani">
             </div>
             <div class="post__info">
-                <a href="" class="catagory__button">Asian</a>
+                <a href="" class="category__button">Asian</a>
                 <h3 class="post__title"><a href="post.php">Fried Rice
                     </a>
                 </h3>
@@ -297,7 +297,7 @@ include 'partials/search_bar.php';
                 <img src="images/biryani.png" alt="biryani">
             </div>
             <div class="post__info">
-                <a href="" class="catagory__button">Asian</a>
+                <a href="" class="category__button">Asian</a>
                 <h3 class="post__title"><a href="post.php">Fried Rice
                     </a>
                 </h3>
@@ -329,7 +329,7 @@ include 'partials/search_bar.php';
                 <img src="images/biryani.png" alt="biryani">
             </div>
             <div class="post__info">
-                <a href="" class="catagory__button">Asian</a>
+                <a href="" class="category__button">Asian</a>
                 <h3 class="post__title"><a href="post.php">Fried Rice
                     </a>
                 </h3>
@@ -355,6 +355,19 @@ include 'partials/search_bar.php';
             </div>
 
         </article>
+    </div>
+</section>
+
+<!-- category  -->
+<section class="category__buttons">
+    <div class="container category__button-container">
+        <a href="" class="category__button">Burmese</a>
+        <a href="" class="category__button">Asian</a>
+        <a href="" class="category__button">Western</a>
+        <a href="" class="category__button">Deserts</a>
+        <a href="" class="category__button">Cakes</a>
+        <a href="" class="category__button">Drinks</a>
+
     </div>
 </section>
 

@@ -1,4 +1,4 @@
-// 
+alert();// 
 
 // function Menu(e){
 //     let list = document.querySelector('.nav__items');
