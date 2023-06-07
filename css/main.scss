@@ -109,20 +109,44 @@ section{
 }
 
 //==================================
+// // ================ MEDIA QUERIES (MEDIUM)============
+//===================================
+@media screen and (max-width:1024px){
+    /* General*/
+    
+    .container{
+        width: $container-width-md;
+       h2{
+        font-size: 1.6rem;
+       }
+       h3{
+        font-size: 1.2rem;
+       }
+       h5{
+        font-size: 0.8rem;
+       }
+
+    }
+}
+
+//==================================
 // // ================NAV============
 //===================================
 nav{
     background:$header-footer;
     width: 100vw;
-    height: 4.5 rem;
+    height: 4.5rem;
     position:fixed;
     top:0;
     z-index:10;
     box-shadow:0 1rem 1rem rgba(0, 0, 0, 0.2) ;
     }
-nav button{
-    display:none;
-}
+    .uil{
+        font-size: 31px;
+    }
+// nav button{
+//     display:none;
+// }
 
 .nav__container{
     height:100%;
@@ -137,15 +161,16 @@ nav button{
     overflow: hidden;
     border: 0.3rem solid $header-footer;
 }
-.nav__logo{
-    font-weight:600 ;
+ .nav__logo{
+     font-weight:600;
+     
     
-}
-.nav__items{
-    display:flex;
-    align-items: center;
-    gap:4rem;
-}
+ }
+// .nav__items{
+//     display:flex;
+//     align-items: center;
+//     gap:4rem;
+// }
 
 .nav__profile{
     position: relative;
@@ -183,60 +208,163 @@ nav button{
     opacity: 1;
 
 }
-/////============search bar================///
-.search__bar{
-    width: 100%;
-    height: 12rem;
-    background: $brand-color;
-    
-}
-.searchbar__container{
-    text-align: center;
-    
-}
-.searchbar__input{
-    
-    background: $dark-green;
-    text-align: center;
-    margin-top: 5rem;
-    //width:350px;
-    //height: 40px;
-    border-radius: 20px;
-    padding:15px 50px;
-    color:$white;
-   
-}
-.searchbar__container input[type=text] {
-    
+
+//==================================
+// // ================ MEDIA QUERIES (MEDIUM)============
+//===================================
+// @media screen and (max-width:1024px){
+    /*-----nav-------*/
+    nav button{
+        display: inline-block;
+        font-size: 1.5rem;
+        background:transparent;
         color:$brand-color;
-        padding:10px;
-        width: 29rem;
-        margin-top:80px;
-        background:$dark-green;
-        font-family: $text-font-stack;
-        border-radius: 13px;
-    
-    
-}
-.searchbar__container button{
-        padding:6px;
-        background: $dark-green;
-        font-size: 20px;
-        border: none;
         cursor: pointer;
-        border-radius: 0 13px;
-        .uil-search{
-            
-            color: $brand-color;
-            
+
+    }
+  nav button#close__nav-btn{
+    display:none;
+  }
+  .nav__container{
+    position:relative;
+  } 
+  .nav__items{
+    position: absolute;
+    flex-direction: column;
+    top:100%;
+    left:0;
+    //background: $mid-yellow;
+    width:12rem;
+    align-items:flex-start;
+    justify-content: center;
+    gap:0;
+    li{
+        width: 100%;
+        height: 4.5rem;
+        display: flex;
+        align-items: center;
+        background: $brand-color;
+        box-shadow:-2rem 3rem 7rem rgba(0, 0, 0, 0.4) ;
+        border-top:1px solid $button-color;
+        animation:animateDropdown 1s 0s ease forwards;
+        opacity:0;
+        transform-origin:top;
+        a{
+            color:$black;
+            margin-left: 10px;
         }
-       
+        }
+
+  } 
+
+  .nav__items li:nth-child(2){
+    animation-delay: 200ms;
+  }
+  .nav__items li:nth-child(3){
+    animation-delay: 400ms;
+  }
+  .nav__items li:nth-child(4){
+    animation-delay: 600ms;
+  }
+  
+  @keyframes animateDropdown{
+    0%{
+        transform:rotate(90deg);
+      }
+    100%{
+        transform:rotate(0deg);
+        opacity:1;
+    }
+  }
+  .nav__profile{
+    background:$brand-color;
+    ul{
+        top:100%;
+        width: 100%;
+
+    }
+  
+  .nav__profile .avatar{
+    margin-left:2rem;
+    border:0;
+  }
 }
+
+//}
+/*============create button ===========*/
+.create__container{
+    border:1px solid $brand-color;
+    padding:3px 10px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: end;
+    cursor: pointer;
+
+}
+// .create{
+//     position:absolute;
+//     left:67rem;
+//     top:1.5rem;
+//     font-size: 16px;
+//     color:$brand-color;
+
+// }
+
+
+/////============search bar================///
+ .search__bar{
+     width: 100%;
+     height: 16rem;
+     background: $brand-color;
+     margin:0 auto;
+     
+    
+ }
+ .search__bar-container{
+    position:relative;
+     top:8.8rem;
+    // left:28rem;
+    text-align: center;
+    width: 30rem;
+    background: $dark-green;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 0.1rem 0.8rem;
+    border-radius: 10px;
+    
+}
+.search__bar-container > div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.search__bar input{
+    background: transparent;
+    margin-left: 0.7rem;
+    padding:0.5rem;
+    width: 100%;
+    font-family:inherit;
+}
+.btn{
+    display: inline-block;
+    width: fit-content;
+    padding:0.4rem 1rem;
+    font-family: inherit;
+    background-color: $brand-color;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: $transition;
+
+}
+
+
 .nature-12{
     width: 140px;
     height:140px;
     position: absolute;
-    left:13rem;
+    left:2rem;
     top:5rem;
     opacity: 0.8;
     @media screen and (max-width:1024px){
@@ -247,13 +375,20 @@ nav button{
     width:130px;
     height:130px;
     position: absolute;
-    right:15rem;
+    right:2rem;
     top:7rem;
     opacity:0.8;
     @media screen and (max-width:1024px){
         display:none;
     }
 
+}
+
+//==================================
+// // ================ MEDIA QUERIES (MEDIUM)============
+//===================================
+@media screen and (max-width:1024px){
+   
 }
 
 //==================================
@@ -305,6 +440,17 @@ nav button{
     }
  }
 
+ //==================================
+// // ================ MEDIA QUERIES (MEDIUM)============
+//===================================
+@media screen and (max-width:1024px){
+    .hero__image{
+        width: 50px;
+        height: 50px;
+    }
+    
+   
+}
 
 
 ////=================Marquee section ==========///
@@ -350,6 +496,7 @@ nav button{
         100% { left: -100%; }
       
 }
+
 
 ////=================ABOUT ==========///
 .about{
@@ -419,7 +566,25 @@ nav button{
     right:0;
     top:55rem;
     opacity:0.8;
+    @media screen and (max-width:1024px){
+        display:none;
+    }
 
+}
+
+//==================================
+// // ================ MEDIA QUERIES (MEDIUM)============
+//===================================
+@media  screen and (max-width:600px) {
+    .about__image{
+        width: 50px;
+        height: 50px;
+        position:absolute;
+        opacity:0.3;
+        top:55rem;
+        left:5rem;
+    }
+    
 }
 
 
@@ -454,6 +619,8 @@ nav button{
             transition: $transition;
         }
     }
+
+ 
    //============Category Button================= 
 //    .featured{
 //     background: $dark-green;
@@ -471,6 +638,7 @@ nav button{
         color:$black;
     }
 
+ 
     //============General post================= 
     .post__thumbnail{
         border: 0.5rem solid $button-color;
@@ -495,6 +663,8 @@ nav button{
         border-radius: 20px;
         overflow: hidden;
     }
+
+
     
     //============Featured================= 
    
@@ -511,6 +681,24 @@ nav button{
 
      }
 
+     //==================================
+// // ================ MEDIA QUERIES (MEDIUM)============
+//===================================
+@media screen and (max-width:1024px){
+    .featured__container{
+        gap:3rem;
+    }
+    .posts__container{
+        grid-template-columns: 1fr 1fr;
+        gap:3rem;
+    }
+    .footer__container{
+        grid-template-columns: 1fr 1fr;
+        gap:3rem;
+
+    }
+}
+
 //============ RECIPES- POST =================//
 
 .posts__container{
@@ -518,6 +706,8 @@ nav button{
     grid-template-columns: repeat(3, 1fr);
     gap:5rem;
 }
+
+
 
 //====================Category BUTTONS =====================//
 .category__buttons{
@@ -532,6 +722,11 @@ nav button{
     grid-template-columns: repeat(3,1fr);
     gap:1rem;
 }
+
+//==================================
+// // ================ MEDIA QUERIES (MEDIUM)============
+//===================================
+
 
 
 
@@ -635,17 +830,19 @@ footer{
             .uil-message{
                 padding:8px;
                 background:none;
-                
+                //position: sticky;
                 color:$brand-color;
                 font-size: 23px;
                 position:absolute ;
                 right:300px;
                 rotate: -20deg;
-                :hover{
-                    color:$header-footer;
-                    cursor: pointer;
+                cursor:pointer;
+                @media screen and (max-width:600px){
+                    right:150px;
                 }
-                //bottom:20px;
+                @media screen and (max-width:1024px){
+                    right:90px;
+                }
 
             }
 
@@ -655,109 +852,41 @@ footer{
 
 
 
-//==================================
-// // ================NAV MEDIA QUERIES (MEDIUM)============
-//===================================
-        @media screen and (max-width:1024px){
-            /* General*/
+
             
-            .container{
-                width: $container-width-md;
-               h2{
-                font-size: 1.6rem;
-               }
-               h3{
-                font-size: 1.2rem;
-               }
-               h5{
-                font-size: 0.8rem;
-               }
-
-            }
-
-            /*-----nav-------*/
-            nav button{
-                display: inline-block;
-                font-size: 1.5rem;
-                background: transparent;
-                color:$white;
-                cursor: pointer;
-
-            }
-          nav button#close__nav-btn{
-            display:none;
-          }
-          .nav__container{
-            position:relative;
-          } 
-          .nav__items{
-            position: absolute;
-            flex-direction: column;
-            top:100%;
-            right:0;
-            width:12rem;
-            align-items: flex-start;
-            justify-content: center;
-            gap:0;
-            li{
-                width: 100%;
-                height: 4.5rem;
-                display: flex;
-                align-items: center;
-                box-shadow:-2rem 3rem 7rem rgba(0, 0, 0, 0.4) ;
-                border-top:1px solid $button-color;
-                animation:animateDropdown 1s 0s ease forwards;
-                opacity:0;
-                transform-origin:top;
-                }
-
-          } 
-
-          .nav__items li:nth-child(2){
-            animation-delay: 200ms;
-          }
-          .nav__items li:nth-child(3){
-            animation-delay: 400ms;
-          }
-          .nav__items li:nth-child(4){
-            animation-delay: 600ms;
-          }
-          
-          @keyframes animateDropdown{
-            0%{
-                transform:rotate(90deg);
-              }
-            100%{
-                transform:rotate(0deg);
-                opacity:1;
-            }
-          }
-          .nav__profile{
-            background:$grey;
-            ul{
-                top:100%;
-                width: 100%;
-
-            }
-          
-          .nav__profile .avatar{
-            margin-left:2rem;
-            border:0;
-          }
-        }
-        .featured__container{
-            gap:3rem;
-        }
-        .posts__container{
-            grid-template-columns: 1fr 1fr;
-            gap:3rem;
-        }
-        .footer__container{
-            grid-template-columns: 1fr 1fr;
-            gap:3rem;
-
-        }
+      
 
     
     
+    
+//==================================
+// // ================ SMALL QUERIES (SMALL SCREEN)============
+//===================================
+@media screen and (max-width:600px){
+    section{
+        margin-top:2rem;
     }
+    h1{
+        font-size: 2rem;
+    }
+    .featured{
+        margin-top: 6rem;
+        
+    }
+    .featured__container{
+        grid-template-columns: 1fr;
+        gap:0;
+    }
+    .posts__container{
+        grid-template-columns: 1fr;
+    }
+    .footer__container{
+        grid-template-columns: 1fr;
+        text-align: center;
+        align-items: center;
+        gap:2rem;
+    }
+    .search__bar-container{
+        width: $container-width-md;
+    }
+}

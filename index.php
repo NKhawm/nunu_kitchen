@@ -1,6 +1,8 @@
 <?php
 include 'partials/header.php';
 ?>
+
+
 <?php include 'partials/search_bar.php'; ?>
 
 <!-- Hero  -->
@@ -9,9 +11,10 @@ include 'partials/header.php';
         <div class="hero__title">
             <h1>Satisfy your cravings</h1>
             <h2>Learn, Share and Create with us.</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
-                Quas dolore obcaecati repudiandae sint natus, distinctio repellat? <br>Aut commodi, voluptatum maxime eaque facilis mollitia expedita <br>officia omnis quidem quae, adipisci nulla.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Quas dolore obcaecati repudiandae sint natus, distinctio repellat? Aut commodi, voluptatum maxime eaque facilis mollitia expedita officia omnis quidem quae, adipisci nulla.</p>
             <br>
+
             <a class="browse__recipe" href="<?= ROOT_URL ?>recipe.php">Browse Recipes</a>
 
         </div>

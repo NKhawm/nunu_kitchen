@@ -41,11 +41,13 @@ require 'config/db.php';
 
 
             <a href="<?= ROOT_URL ?>index.php" class="nav__logo"><img class="logo" src="<?= ROOT_URL ?>/images/logo.png" alt="brand logo"></a>
+            <?php include 'partials/create-button.php'; ?>
+
             <ul class="nav__items">
                 <li><a href="<?= ROOT_URL ?>recipe.php">Recipes</a></li>
                 <li><a href="<?= ROOT_URL ?>about.php">About</a></li>
                 <li><a href="<?= ROOT_URL ?>contact.php">Contact</a></li>
-                <li><a href="<?= ROOT_URL ?>create_recipe.php">+ Create </a></li>
+                <!-- <li><a href="<?= ROOT_URL ?>create_recipe.php">+ Create </a></li> -->
 
                 <li class="nav__profile">
                     <div class="avatar"><img src="./images/profilepic.png"> </div>
