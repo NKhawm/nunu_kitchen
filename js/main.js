@@ -51,3 +51,10 @@ const hideSidebar = () => {
 
 showSidebarBtn.addEventListener('click', showSidebar);
 hideSidebarBtn.addEventListener('click', hideSidebar);
+
+// single post
+$('.list-item').on('click', function() {
+    $(this).toggleClass('is-checked');
+  });
+  
+  
