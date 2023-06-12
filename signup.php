@@ -15,7 +15,7 @@
         <div class="alert__message-success">
             <p>This is an error message</p>
         </div>
-        <form action="">
+        <form action="" enctype="multipart/form-data">
             <input type="text" placeholder="First Name">
 
             <input type="text" placeholder="Last Name">

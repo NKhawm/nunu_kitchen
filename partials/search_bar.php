@@ -17,7 +17,7 @@
     <form class="container search__bar-container" action="">
         <div>
             <i class="uil uil-search"> </i>
-            <input type="search" name="" placeholder="Search your recipes here..">
+            <input class="search__input" type="search" name="" placeholder="Search your recipes here..">
         </div>
         <button type="submit" class="btn">Go</button>
 

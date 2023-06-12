@@ -1,8 +1,6 @@
 <?php
 include 'partials/header.php';
 ?>
-
-
 <?php include 'partials/search_bar.php'; ?>
 
 <!-- Hero  -->

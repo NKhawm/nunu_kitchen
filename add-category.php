@@ -11,23 +11,19 @@
 
 <section class="form__section">
     <div class="container form__section-container">
-        <h2>Sign In</h2>
+        <h2>Add Category</h2>
         <div class="alert__message-error">
             <p>This is an error message</p>
         </div>
         <form action="" enctype="multipart/form-data">
-            <input type="text" placeholder="Email">
-            <input type="password" placeholder="Password">
+            <input type="text" placeholder="Title">
+            <textarea rows="4" placeholder="Description"></textarea>
             <br><br>
-            <button type="submit" class="sign__btn">Sign In</button>
-            <small>Don't have an account with us? <a href="signin.php">Sign Up </a>here.</small>
+            <button type="submit" class="sign__btn">Add Category</button>
 
         </form>
 
     </div>
-    <div class="form__image">
 
-        <img src="https://source.unsplash.com/1600x900/?food" alt="unplash images">
-    </div>
 </section>
 <?php include "partials/footer.php"; ?>
