@@ -8,7 +8,13 @@ $dark-green:#4C5959 !default;
 $black:#141414 !default;
 $pink:#FE4DAA!default;
 $button-color:#648D8F;
-$grey:#a8a8a8;
+$grey:#a8a8a832;
+$red:#ae0404;
+$green:#026002;
+$cat-color:#49979c44;
+$semi:#727c63;
+
+
 
 //fonts variable
 $text-font-stack: 'Kumbh Sans', sans-serif;
@@ -348,12 +354,25 @@ nav{
     width: fit-content;
     padding:0.4rem 1rem;
     font-family: inherit;
-    background-color: $brand-color;
+    background-color: $button-color;
     border-radius: 10px;
     cursor: pointer;
     transition: $transition;
 
 }
+.btn.sm{
+    padding:0.3rem 0.7rem;
+    font-size: 0.8rem;
+
+}
+.btn.danger{
+    background:$red;
+}
+.btn:hover{
+    background: $white;
+    color:$black;
+}
+
 
 
 .nature-12{
@@ -511,7 +530,7 @@ nav{
     }
       
     
-    .about__title .join__button{
+    .about__title .join__button .sign__btn{
         padding:10px;
         border-radius: 20px;
         background:$button-color;
@@ -519,7 +538,7 @@ nav{
         color:$brand-color;
         cursor: pointer;
       }
-      .join__button:hover{
+      .join__button .sign__btn:hover{
    
             background: $mid-yellow;
             color:$black;
@@ -899,7 +918,7 @@ nav{
 }
 .alert__message-error{
     background:#f58181ca ;
-    color:#ae0404;
+    color:$red;
     padding:0.4rem;
     text-align: center;
     border-radius: 10px;
@@ -908,7 +927,7 @@ nav{
 }
 .alert__message-success{
     background:#90ee9083 ;
-    color: #026002;
+    color: $green;
     padding:0.4rem ;
     text-align: center;
     border-radius: 10px;
@@ -956,19 +975,160 @@ form{
     }
 
 }
-.sign__btn{
-    padding:8px;
-    border-radius: 10px;
-    background:$button-color;
-    font-family: inherit;
-    font-size: 16px;
-    color:$brand-color;
-    cursor: pointer;
-    :hover{
-        background: $mid-yellow;
-        color:$black;
+// .sign__btn{
+//     padding:4px;
+//     border-radius: 10px;
+//     background:$button-color;
+//     font-family: inherit;
+//     font-size: 16px;
+//     color:$brand-color;
+//     cursor: pointer;
+//     :hover{
+//         background: $mid-yellow;
+//         color:$black;
 
+//     }
+// }
+
+//==========================================DASHBOARD===================================//
+.dashboard{
+    margin-top: 6rem;
+}
+.sidebar__toggle{
+    display:none;
+}
+.dashboard__container{
+    display:grid;
+    grid-template-columns: 14rem auto;
+    gap:1rem;
+    background:$header-footer;
+    padding:2rem;
+    margin-bottom: 5rem;
+    h5{
+        font-size:16px;
+        
     }
+    h5:hover{
+        color:black;
+    }
+
+}
+.dashboard aside a{
+    
+    display:flex;
+    gap:1rem;
+    align-items:center;
+    padding:1.6rem;
+    background:$button-color;
+
+
+
+}
+.dashboard aside ul li:not(:last-child) a{
+    border-bottom: 1px solid $grey;
+}
+.dashboard aside a:hover{
+    background: $cat-color;
+    color:$black;
+}
+.dashboard aside a.active{
+    background:$grey;
+}
+.dashboard main{
+    margin-left: 1.5rem;
+    h2{
+        margin: 0 0 2rem 0;
+        line-height: 1;
+    }
+    table{
+        width: 100%;
+        text-align: left;
+        th{
+            background:$grey;
+            padding:0.8rem;
+            color:$brand-color;
+        }
+        td{
+            padding:0.8rem;
+            border-bottom:1px solid grey;
+
+        }
+    }
+
+}
+.dashboard main table tr:hover td{
+    background:$grey ;
+    //color:;
+    cursor: default;
+    transition:$transition;
+}
+
+//==========================================DASHBOARD MEDIA QUESRIES (Medium)===================================//
+@media screen and (max-width:1024px){
+.dashboard__container{
+    grid-template-columns: 4.5rem auto;
+    padding:0;
+    background: transparent;
+}
+.dashboard aside h5 {
+   // background: ;
+   
+    display:none;
+
+}
+.dashboard main table thead{
+    display:none;
+}
+.dashboard main table {
+    tr{
+    display:flex;
+    flex-direction: column;
+      }
+      :hover{
+        background:transparent ;
+      }
+   }
+   .dashboard main table tr:nth-child(even){
+    background: $grey;
+   }
+}
+
+//==========================================DASHBOARD MEDIA QUESRIES (Small)===================================//
+@media screen and (max-width:600px){
+.dashboard{
+    margin-top:5rem;
+}
+.dashboard__container{
+    grid-template-columns: 1fr;
+    gap:0;
+
+}
+.dashboard main{
+    margin:0;
+    h2{
+        margin-top:1rem;
+    }
+    
+}
+.dashboard aside{
+    position: fixed;
+    box-shadow: 2rem 0 4rem black;
+    left:0;
+    height: 100vh;
+    transition: $transition;
+    background: $header-footer;
+}
+.dashboard .sidebar__toggle{
+    display: inline block;
+    background:$mid-yellow;
+    color:$white;
+    position: fixed;
+    z-index:1;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
 }
 
 
@@ -988,7 +1148,7 @@ form{
 
 
 
-//=======================================FOOTER=================
+//=======================================FOOTER====================================//
 footer{
     background: $header-footer;
     padding:5rem 0 0;
