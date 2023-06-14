@@ -10,6 +10,10 @@
 
 
 <section class="form__section">
+    <div class="form__image-r">
+
+        <img src="https://source.unsplash.com/1600x900/?food" alt="unplash images">
+    </div>
     <div class="container form__section-container">
         <h2>Add Post</h2>
         <div class="alert__message-error">
@@ -38,7 +42,7 @@
                 <input type="file" id="thumbnail">
             </div>
 
-            <button type="submit" class="sign__btn">Add Category</button>
+            <button type="submit" class="btn">Add Category</button>
 
         </form>
 

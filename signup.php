@@ -14,7 +14,7 @@
         <h2>Sign Up</h2>
         <div class="alert__message-success">
             <p>This is an error message</p>
-        </div>
+        </div><br>
         <form action="" enctype="multipart/form-data">
             <input type="text" placeholder="First Name">
 
@@ -29,8 +29,8 @@
             <div class="form__control">
                 <label for="avatar">User Avatar</label>
                 <input type="file" id="avatar">
-            </div><br>
-            <button type="submit" class="sign__btn">Sign Up</button>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
             <small>Already have an account? <a href="signin.php">Sign In </a>here.</small>
 
         </form>

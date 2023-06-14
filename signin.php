@@ -15,11 +15,12 @@
         <div class="alert__message-error">
             <p>This is an error message</p>
         </div>
+        <br>
         <form action="" enctype="multipart/form-data">
             <input type="text" placeholder="Email">
             <input type="password" placeholder="Password">
-            <br><br>
-            <button type="submit" class="sign__btn">Sign In</button>
+
+            <button type="submit" class="btn">Sign In</button>
             <small>Don't have an account with us? <a href="signin.php">Sign Up </a>here.</small>
 
         </form>

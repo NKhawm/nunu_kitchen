@@ -48,7 +48,7 @@
             </ul>
         </aside>
         <main>
-            <h2>Manage Users</h2>
+            <h2>Manage Posts</h2>
             <table>
                 <thead>
                     <tr>
@@ -62,30 +62,29 @@
                     <tr>
                         <td>Ramen</td>
                         <td>Japanese</td>
-                        <td><a href="edit-post.php" class="btn sm">Edit</a></td>
+                        <td><a href="edit-post.php" class="btn sm edit">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
+
                     </tr>
                     <tr>
                         <td>Ramen</td>
                         <td>Japanese</td>
-                        <td><a href="edit-post.php" class="btn sm">Edit</a></td>
+                        <td><a href="edit-post.php" class="btn sm edit">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
                     </tr>
                     <tr>
                         <td>Ramen</td>
                         <td>Japanese</td>
-                        <td><a href="edit-post.php" class="btn sm">Edit</a></td>
+                        <td><a href="edit-post.php" class="btn sm edit">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
+
                     </tr>
                     <tr>
                         <td>Ramen</td>
                         <td>Japanese</td>
-                        <td><a href="edit-post.php" class="btn sm">Edit</a></td>
+                        <td><a href="edit-post.php" class="btn sm edit">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Yes</td>
+
                     </tr>
 
                 </tbody>

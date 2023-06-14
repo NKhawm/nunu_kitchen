@@ -61,19 +61,19 @@
                 <tbody>
                     <tr>
                         <td>Niang Huai</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
+                        <td><a href="edit-user.php" class="btn sm edit">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
                         <td>Yes</td>
                     </tr>
                     <tr>
                         <td>Karis Sukte</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
+                        <td><a href="edit-user.php" class="btn sm edit">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
                         <td>Yes</td>
                     </tr>
                     <tr>
                         <td>John Doe</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
+                        <td><a href="edit-user.php" class="btn sm edit">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
                         <td>Yes</td>
                     </tr>

@@ -34,6 +34,7 @@ require 'config/db.php';
 </head>
 
 <body>
+
     <nav>
         <div class="container nav__container">
             <!-- hamburger -->
