@@ -994,9 +994,10 @@ form{
 .dashboard{
     margin-top: 6rem;
 }
-.sidebar__toggle{
-    display:none;
-}
+// .sidebar__toggle{
+//     display:none;
+// }
+
 .dashboard__container{
     display:grid;
     grid-template-columns: 14rem auto;
@@ -1013,6 +1014,7 @@ form{
     }
 
 }
+
 .dashboard aside a{
     
     display:flex;
@@ -1076,6 +1078,7 @@ form{
     display:none;
 
 }
+
 .dashboard main table thead{
     display:none;
 }
@@ -1113,20 +1116,33 @@ form{
 .dashboard aside{
     position: fixed;
     box-shadow: 2rem 0 4rem black;
-    left:0;
+    left:-100%;
     height: 100vh;
     transition: $transition;
     background: $header-footer;
 }
 .dashboard .sidebar__toggle{
     display: inline block;
-    background:$mid-yellow;
+    background:$button-color;
     color:$white;
     position: fixed;
+    right:0;
+    bottom:4rem;
     z-index:1;
     width: 2.5rem;
     height: 2.5rem;
-    border-radius: 50%;
+    border-radius: 50% 0 0 50%;
+    font-size: 1.3rem;
+    cursor:pointer;
+    box-shadow: -1rem 0 2rem black;
+    
+
+}
+.dashboard aside a h5{
+    display: inline-block;
+}
+#hide__sidebar-btn{
+    display: none;
 }
 
 }
