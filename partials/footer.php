@@ -41,8 +41,10 @@
         <!--  -->
         <article>
             <h4>Subscribe</h4>
-            <input class="input__email" type="text" placeholder="enter your email here">
-            <button type="submit" target="blank" class="uil uil-message"></button>
+            <div class="footer__email">
+                <input class="input__email" type="text" placeholder="enter your email here">
+                <button type="submit" target="blank" class="uil uil-message"></button>
+            </div>
             <p>Join our newsletter to stay up to date on features and releases</p>
 
         </article>

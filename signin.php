@@ -21,7 +21,7 @@
             <input type="password" placeholder="Password">
 
             <button type="submit" class="btn">Sign In</button>
-            <small>Don't have an account with us? <a href="signin.php">Sign Up </a>here.</small>
+            <small>Don't have an account with us? <a href="signup.php">Sign Up </a>here.</small>
 
         </form>
 
