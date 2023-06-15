@@ -10,7 +10,7 @@
 
 // }
 
-document.addEventListener('DOMContentLoaded', function() {
+//document.addEventListener('DOMContentLoaded', function() {
     const navItems = document.querySelector('.nav__items');
     const openNavBtn = document.querySelector('#open__nav-btn');
     const closeNavBtn = document.querySelector('#close__nav-btn');
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     closeNavBtn.addEventListener('click', closeNav);
     
     closeNav(); // Call closeNav() on page load to hide the nav dropdown
-});
+//});
 
 const sidebar = document.querySelector('aside');
 const showSidebarBtn = document.querySelector('#show__sidebar-btn');

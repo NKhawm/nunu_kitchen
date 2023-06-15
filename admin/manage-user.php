@@ -17,7 +17,7 @@
                 </li>
 
                 <li>
-                    <a href="dashboard-post.php" class="active"><i class="uil uil-postcard"></i>
+                    <a href="dashboard-post.php"><i class="uil uil-postcard"></i>
                         <h5>Manage Post</h5>
                     </a>
                 </li>
@@ -29,7 +29,7 @@
                 </li>
 
                 <li>
-                    <a href="manage-user.php"><i class="uil uil-users-alt"></i>
+                    <a href="manage-user.php" class="active"><i class="uil uil-users-alt"></i>
                         <h5>Manage User</h5>
                     </a>
                 </li>
@@ -48,43 +48,34 @@
             </ul>
         </aside>
         <main>
-            <h2>Manage Posts</h2>
+            <h2>Manage Users</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Category</th>
+                        <th>Name</th>
                         <th>Edit</th>
                         <th>Delete</th>
+                        <th>Admin</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Ramen</td>
-                        <td>Japanese</td>
-                        <td><a href="edit-post.php" class="btn sm edit">Edit</a></td>
+                        <td>Niang Huai</td>
+                        <td><a href="edit-user.php" class="btn sm edit">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-
+                        <td>Yes</td>
                     </tr>
                     <tr>
-                        <td>Ramen</td>
-                        <td>Japanese</td>
-                        <td><a href="edit-post.php" class="btn sm edit">Edit</a></td>
+                        <td>Karis Sukte</td>
+                        <td><a href="edit-user.php" class="btn sm edit">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
+                        <td>Yes</td>
                     </tr>
                     <tr>
-                        <td>Ramen</td>
-                        <td>Japanese</td>
-                        <td><a href="edit-post.php" class="btn sm edit">Edit</a></td>
+                        <td>John Doe</td>
+                        <td><a href="edit-user.php" class="btn sm edit">Edit</a></td>
                         <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-
-                    </tr>
-                    <tr>
-                        <td>Ramen</td>
-                        <td>Japanese</td>
-                        <td><a href="edit-post.php" class="btn sm edit">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-
+                        <td>Yes</td>
                     </tr>
 
                 </tbody>
@@ -95,4 +86,4 @@
 
 
 </section>
-<?php include "partials/footer.php"; ?>
+<?php include "../partials/footer.php"; ?>

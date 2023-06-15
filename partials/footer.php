@@ -2,7 +2,7 @@
     <div class="container container__share">
         <p>Got your own recipes? Why not share with the world. </p>
         <h2> Create Your Recipe</h2>
-        <a class="share" href="<?= ROOT_URL ?>recipe.php">+ Create</a>
+        <a class="share" href="recipe.php">+ Create</a>
     </div>
 
 </section> -->
@@ -55,9 +55,9 @@
     </div>
 
 </footer>
-<script src="<?= ROOT_URL ?>js/main.js"></script>
 
 </body>
+<script src="<?= ROOT_URL ?>js/main.js"></script>
 
 
 
