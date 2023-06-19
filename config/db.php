@@ -1,9 +1,10 @@
 <?php
+
 require 'constants.php';
 
 //connection to database
-// $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-// if (mysqli_errno($con)) {
-//     die(mysqli_error($con));
-// }
+if (mysqli_errno($con)) {
+    die(mysqli_error($con));
+}

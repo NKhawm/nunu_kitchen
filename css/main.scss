@@ -64,6 +64,12 @@ body{
     
 
 }
+
+    
+    
+    
+
+
 ul li a{
     color:$brand-color;
 }
@@ -896,6 +902,27 @@ nav{
     }
 
 }
+.alert__message.error {
+    background:#f58181ca ;
+    color:$red;
+    padding:0.4rem;
+    text-align: center;
+    border-radius: 10px;
+    
+
+}
+.alert__message.success{
+    background:#90ee9083 ;
+    color: $green;
+    padding:0.4rem ;
+    text-align: center;
+    border-radius: 10px;
+    
+}
+.alert__message.lg{
+    text-align: center;
+}
+
 .form__image{
     width: 100%;
     height: auto;
@@ -936,33 +963,8 @@ nav{
         text-align: center;
     }
 }
-.alert__message{
-    //background: red;
-    margin-bottom:1rem;
-    
-    
-    
-}
-.alert__message-error{
-    background:#f58181ca ;
-    color:$red;
-    padding:0.4rem;
-    text-align: center;
-    border-radius: 10px;
-    
 
-}
-.alert__message-success{
-    background:#90ee9083 ;
-    color: $green;
-    padding:0.4rem ;
-    text-align: center;
-    border-radius: 10px;
-    
-}
-.alert__message.lg{
-    text-align: center;
-}
+
 form{
     display: flex;
     flex-direction: column;

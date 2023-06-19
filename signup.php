@@ -1,4 +1,16 @@
-<?php include "partials/header.php"; ?>
+<?php
+require 'config/constants.php';
+
+// get back form data if there was a registration error
+$firstname = $_SESSION['signup-data']['firstname'] ?? null;
+$lastname = $_SESSION['signup-data']['lastname'] ?? null;
+$username = $_SESSION['signup-data']['username'] ?? null;
+$email = $_SESSION['signup-data']['email'] ?? null;
+$createpassword = $_SESSION['signup-data']['createpassword'] ?? null;
+$confirmpassword = $_SESSION['signup-data']['confirmpassword'] ?? null;
+// delete signup data session
+unset($_SESSION['signup-data']);
+?>
 
 
 <style type="text/css">
@@ -6,31 +18,59 @@
         background-color: #4C5959;
     }
 </style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link rel="stylesheet" href="<?= ROOT_URL ?>css/main.css">
+    <!-- icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <!-- <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> -->
+    <!-- <script src="https://kit.fontawesome.com/9346465f4f.js" crossorigin="anonymous"></script> -->
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;500;600;700&family=Princess+Sofia&display=swap" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+
+    <title>NuNu's Kitchen Recipes</title>
+</head>
 
 
 
 <section class="form__section">
     <div class="container form__section-container">
         <h2>Sign Up</h2>
-        <div class="alert__message-success">
-            <p>This is an error message</p>
-        </div><br>
-        <form action="" enctype="multipart/form-data">
-            <input type="text" placeholder="First Name">
+        <?php if (isset($_SESSION['signup'])) : ?>
+            <div class="alert__message error">
+                <p>
+                    <?= $_SESSION['signup'];
+                    unset($_SESSION['signup']);
+                    ?>
+                </p>
+            </div>
+        <?php endif ?>
 
-            <input type="text" placeholder="Last Name">
 
-            <input type="text" placeholder="Email">
+        <form action="<?= ROOT_URL ?>signup-logic.php" enctype="multipart/form-data" method="POST">
+            <input type="text" name="firstname" <?= $firstname ?> placeholder="First Name">
 
-            <input type="password" placeholder="Password">
+            <input type="text" name="lastname" <?= $lastname ?> placeholder="Last Name">
 
-            <input type="password" placeholder="Confirm Password">
+            <input type="text" name="email" <?= $email ?> placeholder="Email">
+
+            <input type="password" name="createpassword" <?= $createpassword ?> placeholder="Password">
+
+            <input type="password" name="confirmpassword" <?= $confirmpassword ?> placeholder="Confirm Password">
 
             <div class="form__control">
                 <label for="avatar">User Avatar</label>
-                <input type="file" id="avatar">
+                <input type="file" name="avatar" id="avatar">
             </div>
-            <button type="submit" class="btn">Sign Up</button>
+            <button type="submit" name="submit" class="btn">Sign Up</button>
             <small>Already have an account? <a href="signin.php">Sign In </a>here.</small>
 
         </form>
