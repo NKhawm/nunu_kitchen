@@ -81,8 +81,8 @@ $users = mysqli_query($con, $query);
                     <?php while ($user = mysqli_fetch_assoc($users)) : ?>
                         <tr>
                             <td><?= "{$user['firstname']} {$user['lastname']}" ?> </td>
-                            <td><a href="<?= ROOT_URL ?>admin/edit-user.php?id<?= $user['id'] ?> " class="btn sm edit">Edit</a></td>
-                            <td><a href="<?= ROOT_URL ?>admin/delete-user.php?id<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
+                            <td><a href="<?= ROOT_URL ?>admin/edit-user.php?id=<?= $user['id'] ?> " class="btn sm edit">Edit</a></td>
+                            <td><a href="<?= ROOT_URL ?>admin/delete-user.php?id=<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
                             <td><?= $user['is_admin'] ? 'Yes' : 'No' ?></td>
                         </tr>
                     <?php endwhile ?>
