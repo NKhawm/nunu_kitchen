@@ -27,13 +27,16 @@
                     <option value="1">Admin</option>
                 </select>
 
-                <br>
 
 
-                <button type="submit" class="sign__btn">Update User</button>
+
+                <button type="submit" class="btn">Update User</button>
 
             </form>
+    </div>
+    <div class="form__image">
 
+        <img src="https://source.unsplash.com/1600x900/?food" alt="unplash images">
     </div>
 
 </section>

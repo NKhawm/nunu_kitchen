@@ -1,4 +1,15 @@
-<?php include "partials/header.php"; ?>
+<?php include "partials/header.php";
+// get back form if there's an error
+$firstname = $_SESSION['add-user-data']['firstname'] ?? null;
+$lastname = $_SESSION['add-user-data']['lastname'] ?? null;
+$email = $_SESSION['add-user-data']['email'] ?? null;
+$createpassword = $_SESSION['add-user-data']['createpassword'] ?? null;
+$confirmpassword = $_SESSION['add-user-data']['confirmpassword'] ?? null;
+//$userrole = $_SESSION['add-user-data']['userrole'] ?? null;
+
+//delete session data
+unset($_SESSION['add-user-data']);
+?>
 
 
 <style type="text/css">
@@ -17,35 +28,41 @@
     <div class="container form__section-container">
 
         <h2>Add User</h2>
-        <div class="alert__message-error">
-            <p>This is an error message</p>
-        </div><br>
-        <form action="" enctype="multipart/form-data">
-            <form action="" enctype="multipart/form-data">
+        <?php if (isset($_SESSION['add-user'])) : ?>
+            <div class="alert__message-error">
+                <p><?= $_SESSION['add-user'];
+                    unset($_SESSION['add-user']);
+                    ?>
+                </p>
+            </div>
+            <br>
 
-                <input type="text" placeholder="First Name">
+        <?php endif ?>
+        <form action="<?= ROOT_URL ?>admin/add-user-logic.php" enctype="multipart/form-data" method="POST">
 
-                <input type="text" placeholder="Last Name">
+            <input type="text" name="firstname" value="<?= $firstname ?>" placeholder="First Name">
 
-                <input type="text" placeholder="Email">
+            <input type="text" name="lastname" value="<?= $lastname ?>" placeholder="Last Name">
 
-                <input type="password" placeholder="Password">
+            <input type="text" name="email" value="<?= $email ?>" placeholder="Email">
 
-                <input type="password" placeholder="Confirm Password">
-                <select>
-                    <option value="0">Author</option>
-                    <option value="1">Admin</option>
-                </select>
+            <input type="password" name="createpassword" value="<?= $createpassword ?>" placeholder="Create Password">
 
-                <div class="form__control">
-                    <label for="avatar">User Avatar</label>
-                    <input type="file" id="avatar">
-                </div>
+            <input type="password" name="confirmpassword" value="<?= $confirmpassword ?>" placeholder="Confirm Password">
+            <select name="userrole">
+                <option value="0">Author</option>
+                <option value="1">Admin</option>
+            </select>
+
+            <div class="form__control">
+                <label for="avatar">User Avatar</label>
+                <input type="file" name="avatar" id="avatar">
+            </div>
 
 
-                <button type="submit" class="btn">Add User</button>
+            <button type="submit" name="submit" class="btn">Add User</button>
 
-            </form>
+        </form>
 
 
     </div>
