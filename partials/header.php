@@ -53,7 +53,7 @@ if (isset($_SESSION['user-id'])) {
                 <?php if (isset($_SESSION['user-id'])) :  ?>
                     <li class="nav__profile">
                         <div class="avatar">
-                            <img src="<?= ROOT_URL . 'public-images/' . $avatar['avatar'] ?>">
+                            <img src="<?= ROOT_URL . 'public-images/' . $avatar['avatar']; ?>">
                         </div>
 
                         <ul>

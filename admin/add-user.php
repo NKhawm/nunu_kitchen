@@ -29,7 +29,7 @@ unset($_SESSION['add-user-data']);
 
         <h2>Add User</h2>
         <?php if (isset($_SESSION['add-user'])) : ?>
-            <div class="alert__message-error">
+            <div class="alert__message error">
                 <p><?= $_SESSION['add-user'];
                     unset($_SESSION['add-user']);
                     ?>

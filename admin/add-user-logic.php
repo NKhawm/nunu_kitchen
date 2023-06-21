@@ -76,10 +76,9 @@ if (isset($_POST['submit'])) {
         $insert_user_result = mysqli_query($con, $insert_user_query);
 
         if (!mysqli_errno($con)) {
-            // redirect to login page with success message
-            $_SESSION['add-user-success'] = "New use $firstname $lastname added successfully.";
+            // redirect to manage page with success message
+            $_SESSION['add-user-success'] = "New user $firstname $lastname has been added successfully.";
             header('location: ' . ROOT_URL . 'admin/manage-user.php');
-            die();
         }
     }
 } else {

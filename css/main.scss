@@ -902,21 +902,26 @@ nav{
     }
 
 }
+.alert__message {
+    padding:0.8rem 1.4rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+}
 .alert__message.error {
     background:#f58181ca ;
     color:$red;
-    padding:0.4rem;
-    text-align: center;
-    border-radius: 10px;
+    // padding:0.4rem;
+    // text-align: center;
+    // border-radius: 10px;
     
 
 }
 .alert__message.success{
     background:#90ee9083 ;
     color: $green;
-    padding:0.4rem ;
-    text-align: center;
-    border-radius: 10px;
+    //padding:0.4rem ;
+    //text-align: center;
+    //border-radius: 10px;
     
 }
 .alert__message.lg{
