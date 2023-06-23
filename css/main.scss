@@ -44,7 +44,7 @@ $container-width-lg:78%;
 $container-width-md:88%;
 $form-width:40%;
 
-// ==================General=========================//
+// ===========================================================General====================================//
 *{
    margin:0;
    padding:0;
@@ -123,24 +123,8 @@ section{
     width: 5rem;
 }
 
-//========================================= MEDIA QUERIES (MEDIUM)============
-@media screen and (max-width:1024px){
-    /* General*/
-    
-    .container{
-        width: $container-width-md;
-       h2{
-        font-size: 1.6rem;
-       }
-       h3{
-        font-size: 1.2rem;
-       }
-       h5{
-        font-size: 0.8rem;
-       }
 
-    }
-}
+
 
 //=========================================NAV===============================================
 nav{
@@ -155,9 +139,9 @@ nav{
     .uil{
         font-size: 31px;
     }
-// nav button{
-//     display:none;
-// }
+nav button{
+    display:none;
+}
 
 .nav__container{
     height:100%;
@@ -177,11 +161,11 @@ nav{
      
     
  }
-// .nav__items{
-//     display:flex;
-//     align-items: center;
-//     gap:4rem;
-// }
+.nav__items{
+    display:flex;
+    align-items: center;
+    gap:4rem;
+}
 
 .nav__profile{
     position: relative;
@@ -220,87 +204,7 @@ nav{
 
 }
 
-//========================================== MEDIA QUERIES (MEDIUM)===============================================
-
-    /*-----nav-------*/
-    nav button{
-        display: inline-block;
-        font-size: 1.5rem;
-        background:transparent;
-        color:$brand-color;
-        cursor: pointer;
-
-    }
-  nav button#close__nav-btn{
-    display:none;
-  }
-  .nav__container{
-    position:relative;
-  } 
-  .nav__items{
-    position: absolute;
-    flex-direction: column;
-    top:100%;
-    left:0;
-    //background: $mid-yellow;
-    width:12rem;
-    align-items:flex-start;
-    justify-content: center;
-    gap:0;
-    li{
-        width: 100%;
-        height: 4.5rem;
-        display: flex;
-        align-items: center;
-        background: $brand-color;
-        box-shadow:-2rem 3rem 7rem rgba(0, 0, 0, 0.4) ;
-        border-top:1px solid $button-color;
-        animation:animateDropdown 400ms 0s ease forwards;
-        opacity:0;
-        transform-origin:top;
-        a{
-            color:$black;
-            margin-left: 10px;
-        }
-        }
-
-  } 
-
-  .nav__items li:nth-child(2){
-    animation-delay: 200ms;
-  }
-  .nav__items li:nth-child(3){
-    animation-delay: 400ms;
-  }
-  .nav__items li:nth-child(4){
-    animation-delay: 600ms;
-  }
-  
-  @keyframes animateDropdown{
-    0%{
-        transform:rotate(90deg);
-      }
-    100%{
-        transform:rotate(0deg);
-        opacity:1;
-    }
-  }
-  .nav__profile{
-    background:$brand-color;
-    ul{
-        top:100%;
-        width: 100%;
-
-    }
-  
-  .nav__profile .avatar{
-    margin-left:2rem;
-    border:0;
-  }
-}
-
-//}
-/*===========================================create button ===========*/
+//===========================================create button =============================================//
 .create__container{
     border:1px solid $brand-color;
     padding:3px 10px;
@@ -320,7 +224,7 @@ nav{
 // }
 
 
-//==================================search bar================///
+//========================================search bar==========================================///
  .search__bar{
      width: 100%;
      height: 16rem;
@@ -464,18 +368,12 @@ nav{
     }
  }
 
- //========================================== MEDIA QUERIES (MEDIUM)=============================================
-@media screen and (max-width:1024px){
-    .hero__image{
-        width: 50px;
-        height: 50px;
-    }
-    
+
    
-}
 
 
-//=========================Marquee section =====================///
+
+//================================================Marquee section ================================///
 .marquee__section{
     margin:0 auto;
     padding:2rem 0;
@@ -519,7 +417,7 @@ nav{
       
 }
 
-//=================ABOUT ================================///
+//=========================================================ABOUT ==============================================///
 .about{
     background: $brand-color;
     width:100vw;
@@ -593,23 +491,13 @@ nav{
 
 }
 
-//========================= MEDIA QUERIES (MEDIUM)=============================================
-@media  screen and (max-width:600px) {
-    .about__image{
-        width: 50px;
-        height: 50px;
-        position:absolute;
-        opacity:0.3;
-        top:55rem;
-        left:5rem;
-    }
     
-}
 
 
 
 
-//============================SHARE RECIPE ===================///
+
+//===============================================SHARE RECIPE =========================================///
 
 .share__recipe{
     background-image: url("../images/oreodonut.jpeg");
@@ -639,7 +527,7 @@ nav{
         }
     }
 
- //==================================Category Button================= 
+ //============================================Category Button===================================//
 //    .featured{
 //     background: $dark-green;
 //     margin:0 auto;
@@ -657,7 +545,7 @@ nav{
     }
 
  
-    //==============================General post================= 
+    //================================================General post===================================// 
     .post__thumbnail{
         border: 0.5rem solid $button-color;
         border-radius: 20px;
@@ -684,7 +572,7 @@ nav{
 
 
     
-//======================================Featured================= 
+//====================================================Featured===========================================// 
    
      .featured{
         margin-top: 8rem;
@@ -699,24 +587,11 @@ nav{
 
      }
 
-//======================================= MEDIA QUERIES (MEDIUM)============
 
-@media screen and (max-width:1024px){
-    .featured__container{
-        gap:3rem;
-    }
-    .posts__container{
-        grid-template-columns: 1fr 1fr;
-        gap:3rem;
-    }
-    .footer__container{
-        grid-template-columns: 1fr 1fr;
-        gap:3rem;
+    
 
-    }
-}
 
-//============ RECIPES- POST =================//
+//======================================== RECIPES- POST =======================================//
 
 .posts__container{
     display: grid;
@@ -726,7 +601,7 @@ nav{
 
 
 
-//====================Category BUTTONS =====================//
+//=================================================Category BUTTONS ====================================//
 .category__buttons{
     padding:4rem 0;
     border-top:2px solid $grey;
@@ -740,7 +615,7 @@ nav{
     gap:1rem;
 }
 
-//====================================== single post============
+//============================================== single post=================================//
 
 .singlepost__container .post__author{
     text-align: center;
@@ -879,7 +754,7 @@ nav{
     color:$mid-yellow;
   }
 
-//=========================category posts===============//
+//==================================================category posts=================================//
 
 .category__title{
     height: 15rem;
@@ -889,7 +764,7 @@ nav{
     place-items: center;
 }
 
-//=========================General Form===============//
+//================================================General Form====================================//
 
 .form__section{
     display: grid;
@@ -1106,36 +981,8 @@ form{
     transition:$transition;
 }
 
-//==========================================DASHBOARD MEDIA QUESRIES (Medium)===================================//
-@media screen and (max-width:1024px){
-.dashboard__container{
-    grid-template-columns: 4.5rem auto;
-    padding:0;
-    background: transparent;
-}
-.dashboard aside h5 {
-   // background: ;
-   
-    display:none;
 
-}
 
-.dashboard main table thead{
-    display:none;
-}
-.dashboard main table {
-    tr{
-    display:flex;
-    flex-direction: column;
-      }
-      :hover{
-        background:transparent ;
-      }
-   }
-   .dashboard main table tr:nth-child(even){
-    background: $grey;
-   }
-}
 
 //==========================================DASHBOARD MEDIA QUESRIES (Small)===================================//
 @media screen and (max-width:600px){
@@ -1187,22 +1034,6 @@ form{
 }
 
 }
-
-
-
-    
- 
-
-
-
-
-
-
-
-
-
-
-
 
 
 //=======================================FOOTER====================================//
@@ -1310,20 +1141,174 @@ footer{
 
             }
 
+//=======================================Media Queries (MEDIUM)========================================
+//=======================================Media Queries (MEDIUM)========================================
+//=======================================Media Queries (MEDIUM)========================================
 
+@media screen and (max-width:1024px){
 
-
-
-
-
-
-            
-      
-
+    /* General*/
     
+    .container{
+        width: $container-width-md;
+       h2{
+        font-size: 1.6rem;
+       }
+       h3{
+        font-size: 1.2rem;
+       }
+       h5{
+        font-size: 0.8rem;
+       }
+
+    }
+
+     /*-----nav-------*/
+     nav button{
+        display: inline-block;
+        font-size: 1.5rem;
+        background:transparent;
+        color:$brand-color;
+        cursor: pointer;
+
+    }
+  nav button#close__nav-btn{
+    display:none;
+  }
+  .nav__container{
+    position:relative;
+  } 
+  .nav__items{
+    position: absolute;
+    flex-direction: column;
+    top:100%;
+    left:0;
+    //background: $mid-yellow;
+    width:12rem;
+    align-items:flex-start;
+    justify-content: center;
+    gap:0;
+    li{
+        width: 100%;
+        height: 4.5rem;
+        display: flex;
+        align-items: center;
+        background: $brand-color;
+        box-shadow:-2rem 3rem 7rem rgba(0, 0, 0, 0.4) ;
+        border-top:1px solid $button-color;
+        animation:animateDropdown 400ms 0s ease forwards;
+        opacity:0;
+        transform-origin:top;
+        a{
+            color:$black;
+            margin-left: 10px;
+        }
+        }
+
+  } 
+
+  .nav__items li:nth-child(2){
+    animation-delay: 200ms;
+  }
+  .nav__items li:nth-child(3){
+    animation-delay: 400ms;
+  }
+  .nav__items li:nth-child(4){
+    animation-delay: 600ms;
+  }
+  
+  @keyframes animateDropdown{
+    0%{
+        transform:rotate(90deg);
+      }
+    100%{
+        transform:rotate(0deg);
+        opacity:1;
+    }
+  }
+  .nav__profile{
+    background:$brand-color;
+    ul{
+        top:100%;
+        width: 100%;
+
+    }
+  
+  .nav__profile .avatar{
+    margin-left:2rem;
+    border:0;
+  }
+}
+
+/*index hero*/
+.hero__image{
+    width: 50px;
+    height: 50px;
+}
+
+/* about image */
+.about__image{
+    width: 50px;
+    height: 50px;
+    position:absolute;
+    opacity:0.3;
+    top:55rem;
+    left:5rem;
+}
+
+/* Featured */
+.featured__container{
+    gap:3rem;
+}
+.posts__container{
+    grid-template-columns: 1fr 1fr;
+    gap:3rem;
+}
+.footer__container{
+    grid-template-columns: 1fr 1fr;
+    gap:3rem;
+
+}
+
+    /* Dashboard */
+    .dashboard__container{
+        grid-template-columns: 4.5rem auto;
+        padding:0;
+        background: transparent;
+    }
+    .dashboard aside h5 {
+       // background: ;
+       
+        display:none;
     
+    }
     
+    .dashboard main table thead{
+        display:none;
+    }
+    .dashboard main table {
+        tr{
+        display:flex;
+        flex-direction: column;
+          }
+          :hover{
+            background:transparent ;
+          }
+       }
+       .dashboard main table tr:nth-child(even){
+        background: $grey;
+       }
+    
+
+
+}
+
+
+
 //========================================== SMALL QUERIES (SMALL SCREEN)============
+//========================================== SMALL QUERIES (SMALL SCREEN)============
+//========================================== SMALL QUERIES (SMALL SCREEN)============
+
 @media screen and (max-width:600px){
     section{
         margin-top:2rem;
