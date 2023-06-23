@@ -65,54 +65,14 @@
 
         <!-- Cooking direction -->
         <div class="list-container">
-            <ul class="list">
-                <li class="list-item list-title">Direction</li>
-                <li class="list-item checked">
-                    <div class="list-item-check">
-                        <i class="icon ion-checkmark-round"></i>
-                    </div>
-                    <div class="list-item-title">
-                        <span class="list-item-title-strikethrough"></span>
-                        Update page
-                    </div>
-                </li>
-                <li class="list-item">
-                    <div class="list-item-check">
-                        <i class="icon ion-checkmark-round"></i>
-                    </div>
-                    <div class="list-item-title">
-                        <span class="list-item-title-strikethrough"></span>
-                        Add image to dropdown
-                    </div>
-                </li>
-                <li class="list-item">
-                    <div class="list-item-check">
-                        <i class="icon ion-checkmark-round"></i>
-                    </div>
-                    <div class="list-item-title">
-                        <span class="list-item-title-strikethrough"></span>
-                        Update order on Events page
-                    </div>
-                </li>
-                <li class="list-item">
-                    <div class="list-item-check">
-                        <i class="icon ion-checkmark-round"></i>
-                    </div>
-                    <div class="list-item-title">
-                        <span class="list-item-title-strikethrough"></span>
-                        Send for review
-                    </div>
-                </li>
-                <li class="list-item is-last">
-                    <div class="list-item-check">
-                        <i class="icon ion-checkmark-round"></i>
-                    </div>
-                    <div class="list-item-title">
-                        <span class="list-item-title-strikethrough"></span>
-                        Clear Update Request item
-                    </div>
-                </li>
-            </ul>
+            <h2>Directions</h2>
+            <ol>
+                <li>Hi</li>
+
+                <li>Hello</li>
+
+                <li>Hiya</li>
+            </ol>
         </div>
 
     </div>
