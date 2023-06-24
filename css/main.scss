@@ -132,7 +132,9 @@ section{
 
 
 //=========================================NAV===============================================
-nav{
+
+
+/* nav{
     background:$header-footer;
     width: 100vw;
     height: 4.5rem;
@@ -141,9 +143,8 @@ nav{
     z-index:10;
     box-shadow:0 1rem 1rem rgba(0, 0, 0, 0.2) ;
     }
-    .uil{
-        font-size: 31px;
-    }
+
+    
 nav button{
     display:none;
 }
@@ -159,7 +160,7 @@ nav button{
     height: 3rem;
     border-radius: 50%;
     overflow: hidden;
-    border: 0.3rem solid $header-footer;
+    border: 0.2rem solid $header-footer;
 }
  .nav__logo{
      font-weight:600;
@@ -208,6 +209,7 @@ nav button{
     opacity: 1;
 
 }
+*/
 
 //===========================================create button =============================================//
 .create__container{
@@ -233,7 +235,7 @@ nav button{
  .search__bar{
      width: 100%;
      height: 16rem;
-     //background: $brand-color;
+     background: $brand-color;
      margin:0 auto;
      
     
@@ -1031,14 +1033,18 @@ footer{
     }
 
      /*-----nav-------*/
-     nav button{
-        display: inline-block;
-        font-size: 1.5rem;
-        background:transparent;
-        color:$brand-color;
-        cursor: pointer;
-
+/*
+.uil{
+        font-size: 31px;
     }
+nav button{
+    display: inline-block;
+    font-size: 1.5rem;
+    background:transparent;
+    color:$brand-color;
+    cursor: pointer;
+
+  }
   nav button#close__nav-btn{
     display:none;
   }
@@ -1100,13 +1106,14 @@ footer{
         width: 100%;
 
     }
+}
   
   .nav__profile .avatar{
     margin-left:2rem;
     border:0;
   }
-}
 
+*/
 /*index hero*/
 .hero__image{
     width: 50px;
