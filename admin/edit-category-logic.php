@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
 
     //validate inputs
     if (!$title || !$description) {
-        $_SESSION['edit-category'] = "Invalid inputs";
+        $_SESSION['edit-category'] = "Invalid inputs.";
     } else {
         $query = "UPDATE categories SET title ='$title', description='$description' WHERE id=$id LIMIT 1 ";
         $result = mysqli_query($con, $query);
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
         if (mysqli_errno($con)) {
             $_SESSION['edit-category'] = "Couldn't update category";
         } else {
-            $_SESSION['edit-category'] = "Category $title updated successfully.";
+            $_SESSION['edit-category-success'] = "Category $title updated successfully.";
         }
     }
 }

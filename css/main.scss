@@ -64,12 +64,6 @@ body{
     
 
 }
-
-    
-    
-    
-
-
 ul li a{
     color:$brand-color;
 }
@@ -104,7 +98,7 @@ h4{
    
 }
 a{
-    color:$brand-color;
+    color:$black;
     transition: $transition;
 }
 img{
@@ -123,18 +117,24 @@ section{
     width: 5rem;
 }
 
-.removeIngredient{
+.removeIngredient {
 
     background: transparent;
     color: $brand-color;
     font-family: inherit;
 }
+.removeDirection{
+    background: transparent;
+    color: $brand-color;
+    font-family: inherit;
+
+}
 
 
 //=========================================NAV===============================================
+// nav bar
 
-
-/* nav{
+nav{
     background:$header-footer;
     width: 100vw;
     height: 4.5rem;
@@ -144,7 +144,7 @@ section{
     box-shadow:0 1rem 1rem rgba(0, 0, 0, 0.2) ;
     }
 
-    
+   
 nav button{
     display:none;
 }
@@ -155,6 +155,7 @@ nav button{
     align-items: center;
     justify-content:space-between;
 }
+ 
 .avatar{
     width:3rem;
     height: 3rem;
@@ -162,16 +163,24 @@ nav button{
     overflow: hidden;
     border: 0.2rem solid $header-footer;
 }
+ 
  .nav__logo{
      font-weight:600;
      
     
  }
+ .uil{
+    color:$brand-color;
+    background: transparent;
+    font-size: 26px;
+ }
+  
 .nav__items{
     display:flex;
     align-items: center;
     gap:4rem;
 }
+ 
 
 .nav__profile{
     position: relative;
@@ -209,7 +218,8 @@ nav button{
     opacity: 1;
 
 }
-*/
+
+
 
 //===========================================create button =============================================//
 .create__container{
@@ -1033,10 +1043,12 @@ footer{
     }
 
      /*-----nav-------*/
-/*
+
 .uil{
         font-size: 31px;
     }
+
+   
 nav button{
     display: inline-block;
     font-size: 1.5rem;
@@ -1045,13 +1057,16 @@ nav button{
     cursor: pointer;
 
   }
+
   nav button#close__nav-btn{
     display:none;
   }
-  .nav__container{
+  
+.nav__container{
     position:relative;
   } 
-  .nav__items{
+  
+.nav__items{
     position: absolute;
     flex-direction: column;
     top:100%;
@@ -1061,6 +1076,7 @@ nav button{
     align-items:flex-start;
     justify-content: center;
     gap:0;
+
     li{
         width: 100%;
         height: 4.5rem;
@@ -1080,13 +1096,13 @@ nav button{
 
   } 
 
-  .nav__items li:nth-child(2){
+.nav__items li:nth-child(2){
     animation-delay: 200ms;
   }
-  .nav__items li:nth-child(3){
+.nav__items li:nth-child(3){
     animation-delay: 400ms;
   }
-  .nav__items li:nth-child(4){
+.nav__items li:nth-child(4){
     animation-delay: 600ms;
   }
   
@@ -1099,7 +1115,8 @@ nav button{
         opacity:1;
     }
   }
-  .nav__profile{
+  
+.nav__profile{
     background:$brand-color;
     ul{
         top:100%;
@@ -1108,12 +1125,12 @@ nav button{
     }
 }
   
-  .nav__profile .avatar{
+.nav__profile .avatar{
     margin-left:2rem;
     border:0;
   }
 
-*/
+
 /*index hero*/
 .hero__image{
     width: 50px;

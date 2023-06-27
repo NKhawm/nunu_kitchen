@@ -1,4 +1,11 @@
-<?php include "partials/header.php"; ?>
+<?php include "partials/header.php";
+
+// fetch categories from db
+$query = "SELECT * FROM categories";
+$categories = mysqli_query($con, $query);
+
+
+?>
 
 <!-- Page background -->
 <style type="text/css">
@@ -30,7 +37,7 @@
 
         $('#add__direction').click(function() {
             directionCount++;
-            var directionField = '<div class="direction"><input type="text" name="step[]" placeholder="Step ' + directionCount + '"><button class="removeDirection" type="button">Remove</button></div>';
+            var directionField = '<div class="direction"><input type="text" name="direction[]" placeholder="Step ' + directionCount + '"><button class="removeDirection" type="button">Remove</button></div>';
             $('#direction__container').append(directionField);
         });
 
@@ -53,17 +60,20 @@
         <div class="alert__message-error">
             <p>This is an error message</p>
         </div>
-        <form action="" enctype="multipart/form-data" method="POST">
-            <input type="text" placeholder="Recipe Title">
-            <select>
-                <option value="1">Asian</option>
-                <option value="1">Burmese</option>
-                <option value="1">Desert</option>
-                <option value="1">Drink</option>
-                <option value="1">Asian</option>
-                <option value="1">Asian</option>
-                <option value="1">Asian</option>
+        <form action="<?= ROOT_URL ?>admin/add-post-logic.php" enctype="multipart/form-data" method="POST">
+            <input type="text" name="title" placeholder="Recipe Title">
+            <select name="category">
+                <?php while ($category = mysqli_fetch_assoc($categories)) : ?>
+                    <option value="<?= $category['id'] ?>"> <?= $category['title'] ?> </option>
+                <?php endwhile ?>
+
             </select>
+
+            <!-- cooking time + Serving -->
+            <input type="number" name="serving" placeholder="Serving (eg. 8)">
+            <input type="text" name="preptime" placeholder="Prep Time (eg. 30mins)">
+            <input type="text" name="cookingtime" placeholder="Cooking Time (eg.45mins">
+
             <!-- adding ingredients -->
             <div id="ingredient__container">
                 <div class="ingredient">
@@ -71,30 +81,33 @@
                 </div>
             </div>
             <button id="add__ingredient" type="button" class="btn">Add Ingredient</button>
+
             <!-- adding directions -->
             <div id="direction__container">
                 <div class="direction">
-                    <input type="text" name="step[]" placeholder="Step 1 (eg. Preheat the oven)">
+                    <input type="text" name="direction[]" placeholder="Step 1 (eg. Preheat the oven)">
                 </div>
             </div>
             <button id="add__direction" type="button" class="btn">Add Direction</button>
+            <!-- only show for admin -->
+            <?php if (isset($_SESSION['user_is_admin'])) : ?>
 
+                <div class="form__control inline">
+                    <input type="checkbox" name="is_featured" value="1" id="is_featured">
+                    <label for="is_featured">Featured</label>
+                </div>
+            <?php endif ?>
 
-
-            <div class="form__control inline">
-                <input type="checkbox" id="is_featured">
-                <label for="is_featured">Featured</label>
-            </div>
             <div class="form__control">
                 <label for="thumbnail">Add Thumbnail</label>
-                <input type="file" id="thumbnail">
+                <input type="file" name="thumbnail" id="thumbnail">
             </div>
 
-            <button type="submit" class="btn">Add Post</button>
+            <button type="submit" name="submit" class="btn">+ Add Recipe</button>
 
         </form>
 
     </div>
 
 </section>
-<?php include "partials/footer.php"; ?>
+<?php include "../partials/footer.php"; ?>

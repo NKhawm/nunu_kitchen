@@ -23,8 +23,7 @@ if (isset($_SESSION['user-id'])) {
     <link rel="stylesheet" href="<?= ROOT_URL ?>css/main.css">
     <!-- icons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    <!-- <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> -->
-    <!-- <script src="https://kit.fontawesome.com/9346465f4f.js" crossorigin="anonymous"></script> -->
+
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;500;600;700&family=Princess+Sofia&display=swap" rel="stylesheet">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -42,7 +41,8 @@ if (isset($_SESSION['user-id'])) {
             <!-- <span class="burger" onclick="Menu(this)"><i class="uil uil-bars"></i></span> -->
 
 
-            <a href="<?= ROOT_URL ?>index.php" class="nav__logo"><img class="logo" src="<?= ROOT_URL ?>/images/logo.png" alt="brand logo"></a>
+            <a href="<?= ROOT_URL ?>index.php" class="nav__logo">
+                <img class="logo" src="<?= ROOT_URL ?>/images/logo.png" alt="brand logo"></a>
 
             <ul class="nav__items">
                 <li><a href="<?= ROOT_URL ?>recipe.php">Recipes</a></li>
@@ -54,6 +54,7 @@ if (isset($_SESSION['user-id'])) {
                             <img src="<?= ROOT_URL . 'public-images/' . $avatar['avatar']; ?>">
                         </div>
 
+
                         <ul>
                             <li><a href="<?= ROOT_URL ?>admin/index.php">Dashboard</a></li>
                             <li><a href="<?= ROOT_URL ?>logout.php">Logout</a></li>
@@ -64,6 +65,8 @@ if (isset($_SESSION['user-id'])) {
                 <?php endif ?>
 
             </ul>
+            <button id="open__nav-btn"><i class="uil uil-align"></i></button>
+            <button id="close__nav-btn"><i class="uil uil-multiply"></i></button>
 
 
         </div>

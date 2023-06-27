@@ -46,7 +46,7 @@ if (!isset($_SESSION['user-id'])) {
 
 
             <a href="<?= ROOT_URL ?>index.php" class="nav__logo"><img class="logo" src="<?= ROOT_URL ?>/images/logo.png" alt="brand logo"></a>
-            <?php include '../partials/create-button.php'; ?>
+
 
             <ul class="nav__items">
                 <li><a href="<?= ROOT_URL ?>recipe.php">Recipes</a></li>
