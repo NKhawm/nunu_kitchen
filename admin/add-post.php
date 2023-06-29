@@ -5,6 +5,7 @@ $query = "SELECT * FROM categories";
 $categories = mysqli_query($con, $query);
 
 
+
 ?>
 
 <!-- Page background -->
@@ -14,7 +15,7 @@ $categories = mysqli_query($con, $query);
     }
 </style>
 
-<!-- J query for adding individual ingredient -->
+<!-- J query for adding individual ingredient
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -22,7 +23,7 @@ $categories = mysqli_query($con, $query);
 
         $('#add__ingredient').click(function() {
             ingredientCount++;
-            var ingredientField = '<div class="ingredient"><input type="text" name="ingredient[]" placeholder="Ingredient ' + ingredientCount + '"><button class="removeIngredient" type="button">Remove</button></div>';
+            var ingredientField = '<div class="ingredient"><input type="text" name="ingredient" placeholder="Ingredient ' + ingredientCount + '"><button class="removeIngredient" type="button">Remove</button></div>';
             $('#ingredient__container').append(ingredientField);
         });
 
@@ -37,7 +38,7 @@ $categories = mysqli_query($con, $query);
 
         $('#add__direction').click(function() {
             directionCount++;
-            var directionField = '<div class="direction"><input type="text" name="direction[]" placeholder="Step ' + directionCount + '"><button class="removeDirection" type="button">Remove</button></div>';
+            var directionField = '<div class="direction"><input type="text" name="direction" placeholder="Step ' + directionCount + '"><button class="removeDirection" type="button">Remove</button></div>';
             $('#direction__container').append(directionField);
         });
 
@@ -46,7 +47,7 @@ $categories = mysqli_query($con, $query);
             directionCount--;
         });
     });
-</script>
+</script> -->
 
 
 
@@ -57,9 +58,16 @@ $categories = mysqli_query($con, $query);
     </div>
     <div class="container form__section-container">
         <h2>Add a Recipe</h2>
-        <div class="alert__message-error">
-            <p>This is an error message</p>
-        </div>
+        <?php if (isset($_SESSION['add-post'])) : ?>
+            <div class="alert__message error">
+                <p><?= $_SESSION['add-post'];
+                    unset($_SESSION['add-post']);
+                    ?>
+                </p>
+            </div>
+
+
+        <?php endif ?>
         <form action="<?= ROOT_URL ?>admin/add-post-logic.php" enctype="multipart/form-data" method="POST">
             <input type="text" name="title" placeholder="Recipe Title">
             <select name="category">
@@ -72,23 +80,21 @@ $categories = mysqli_query($con, $query);
             <!-- cooking time + Serving -->
             <input type="number" name="serving" placeholder="Serving (eg. 8)">
             <input type="text" name="preptime" placeholder="Prep Time (eg. 30mins)">
-            <input type="text" name="cookingtime" placeholder="Cooking Time (eg.45mins">
+            <input type="text" name="cookingtime" placeholder="Cooking Time (eg.45mins)">
 
             <!-- adding ingredients -->
             <div id="ingredient__container">
-                <div class="ingredient">
-                    <input type="text" name="ingredient[]" placeholder="Ingredient 1 (eg. 1 cup - Flour)">
-                </div>
+                <input type="text" name="ingredient" placeholder="Enter Ingredients (eg. 1 cup of flour)">
+                <input type="submit" value="Add" class="btn">
             </div>
-            <button id="add__ingredient" type="button" class="btn">Add Ingredient</button>
+            <!-- <button id="add__ingredient" type="button" class="btn">Add Ingredient</button> -->
 
             <!-- adding directions -->
             <div id="direction__container">
-                <div class="direction">
-                    <input type="text" name="direction[]" placeholder="Step 1 (eg. Preheat the oven)">
-                </div>
+                <input type="text" name="direction" placeholder="Enter direction. (eg.Step 1: Preheat the oven.">
+                <input type="submit" value="Add" class="btn">
             </div>
-            <button id="add__direction" type="button" class="btn">Add Direction</button>
+            <!-- <button id="add__direction" type="button" class="btn">Add Direction</button> -->
             <!-- only show for admin -->
             <?php if (isset($_SESSION['user_is_admin'])) : ?>
 

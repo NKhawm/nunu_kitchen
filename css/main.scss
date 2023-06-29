@@ -819,6 +819,29 @@ form{
     }
 
 }
+.textarea__container{
+    width:50%;
+    max-height: 10px;
+}
+#mytextarea{
+    background: transparent;
+    
+    //width:50px;
+}
+.form_section{
+    width: 40rem;
+    margin:auto;
+    padding-bottom: 20px;
+    @media screen and (max-width:1024px){
+        width: 30rem;
+    }
+    @media screen and (max-width:600px){
+        width:25rem;
+    }
+    
+    
+}
+
 .sign__btn{
     padding:8px auto;
     border-radius: 10px;

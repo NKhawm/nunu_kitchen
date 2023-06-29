@@ -1,12 +1,16 @@
 <?php
 require 'config/db.php';
 
-if (!isset($_SESSION['ingrediants'])) {
-    $_SESSION['ingrediants'] = array();
-}
-if (!isset($_SESSION['directions'])) {
-    $_SESSION['directions'] = array();
-}
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+//     if (!isset($_SESSION['ingredients'])) {
+//         $_SESSION['ingredients'] = array();
+//     }
+//     if (!isset($_SESSION['directions'])) {
+//         $_SESSION['directions'] = array();
+//     }
+// }
+
 
 if (isset($_POST['submit'])) {
     $author_id = $_SESSION['user-id']; //to get a current logged in user
@@ -14,16 +18,8 @@ if (isset($_POST['submit'])) {
     $serving = filter_var($_POST['serving'], FILTER_SANITIZE_NUMBER_INT);
     $preptime = filter_var($_POST['preptime'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $cookingtime = filter_var($_POST['cookingtime'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $ingredient = $_POST['ingredient'];
-    if (!empty($item)) {
-        // Add the item to the list
-        array_push($_SESSION['ingredients'], $ingredient);
-    }
-    $direction = $_POST['direction'];
-    if (!empty($item)) {
-        // Add the item to the list
-        array_push($_SESSION['directions'], $direction);
-    }
+    $ingredient = filter_var($_POST['ingredient'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $direction = filter_var($_POST['direction'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $category_id = filter_var($_POST['category'], FILTER_SANITIZE_NUMBER_INT);
     $is_featured = filter_var($_POST['is_featured'], FILTER_SANITIZE_NUMBER_INT);
     $thumbnail = $_FILES['thumbnail'];
@@ -37,9 +33,9 @@ if (isset($_POST['submit'])) {
     } elseif (!$category_id) {
         $_SESSION['add-post'] = "Select the category";
     } elseif (!$ingredient) {
-        $_SESSION['add-post'] = "Add the ingredients";
+        $_SESSION['add-post'] = "Enter ingredients";
     } elseif (!$direction) {
-        $_SESSION['add-post'] = "Add the directions";
+        $_SESSION['add-post'] = "Please enter directions";
     } elseif (!$serving) {
         $_SESSION['add-post'] = "Please enter serving";
     } elseif (!$preptime) {
@@ -75,7 +71,7 @@ if (isset($_POST['submit'])) {
     //redirect back with form data to add post page if error occurs
     if (isset($_SESSION['add-post'])) {
         $_SESSION['add-post-data'] = $_POST;
-        header('location: ' . ROOT_URL . 'admin/add-post.php');
+        header('location: ' . ROOT_URL . 'admin/addpost.php');
         die();
     } else {
         // set is_featured of all post to 0 if this post is 1
@@ -85,7 +81,7 @@ if (isset($_POST['submit'])) {
         }
         //insert post into database
         $query = "INSERT INTO recipes (title, serving, preptime, cookingtime, ingredients, directions, thumbnail, category_id, author_id,is_featured) VALUES
-        ('$title', '$serving', '$preptime', '$cookingtime','$ingredient', '$direction', '$thumbnail_name', $category_id, $author_id, $is_featured)";
+             ('$title', '$serving', '$preptime', '$cookingtime','$ingredient', '$direction', '$thumbnail_name', $category_id, $author_id, $is_featured)";
         $result = mysqli_query($con, $query);
 
         if (mysqli_errno($con)) {
@@ -95,5 +91,5 @@ if (isset($_POST['submit'])) {
         }
     }
 }
-header('location: ' . ROOT_URL . 'admin/add-post.php');
+header('location: ' . ROOT_URL . 'admin/addpost.php');
 die();
