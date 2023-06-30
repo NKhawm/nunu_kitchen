@@ -66,7 +66,7 @@ $categories = mysqli_query($con, $query);
         <aside>
             <ul>
                 <li>
-                    <a href="add-post.php"><i class="uil uil-pen"></i>
+                    <a href="addpost.php"><i class="uil uil-pen"></i>
                         <h5>Add Post</h5>
                     </a>
                 </li>

@@ -31,7 +31,7 @@ unset($_SESSION['add-category-data']);
         <?php endif ?>
         <form action="<?= ROOT_URL ?>admin/add-category-logic.php" method="POST">
             <input type="text" value="<?= $title ?>" name="title" placeholder="Title">
-            <textarea rows="4" value="<?= $description ?>" name="description" placeholder="Description"></textarea>
+            <input value="<?= $description ?>" name="description" placeholder="Description"></input>
 
             <button type="submit" name="submit" class="btn">Add Category</button>
 

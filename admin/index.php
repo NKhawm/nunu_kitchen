@@ -62,7 +62,7 @@ $posts = mysqli_query($con, $query);
                 </li>
 
                 <li>
-                    <a href="dashboard-post.php" class="active"><i class="uil uil-postcard"></i>
+                    <a href="index.php" class="active"><i class="uil uil-postcard"></i>
                         <h5>Manage Post</h5>
                     </a>
                 </li>

@@ -60,7 +60,7 @@ if (isset($_GET['id'])) {
             <input type="text" name="cookingtime" value="<?= $post['cookingtime'] ?>" placeholder="Cooking Time (eg.45mins)">
 
             <!-- adding ingredients -->
-            <textarea name="ingredient" rows="4" placeholder=" (eg. 1 cup of flour.)" id="mytextarea"></textarea>
+            <textarea name="ingredient" rows=" 4" placeholder=" (eg. 1 cup of flour.)" id="mytextarea"></textarea>
 
             <!-- adding directions -->
             <textarea name="direction" rows="4" placeholder=" (eg. Pre heat the oven..)" id="mytextarea"></textarea>

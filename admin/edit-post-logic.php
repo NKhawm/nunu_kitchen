@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
             $time = time(); // make each image name upload unique using current timestamp
             $thumbnail_name = $time . $thumbnail['name'];
             $thumbnail_tmp_name = $thumbnail['tmp_name'];
-            $thumbnail_destination_path = '../images/' . $thumbnail_name;
+            $thumbnail_destination_path = '../public-images/' . $thumbnail_name;
 
             // make sure file is an image
             $allowed_files = ['png', 'jpg', 'jpeg'];

@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
         <form action="<?= ROOT_URL ?>admin/edit-category-logic.php" method="POST">
             <input type="hidden" name="id" value="<?= $category['id'] ?>">
             <input type="text" name="title" value="<?= $category['title'] ?>" placeholder="Title">
-            <textarea name="description" rows="4" placeholder="Description"><?= $category['description'] ?></textarea>
+            <input name="description" value="<?= $category['description'] ?>" placeholder="Description">
             <button type="submit" name="submit" class="btn">Update Category</button>
         </form>
     </div>
