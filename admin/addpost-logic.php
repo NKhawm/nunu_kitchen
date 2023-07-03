@@ -15,6 +15,7 @@ require 'config/db.php';
 if (isset($_POST['submit'])) {
     $author_id = $_SESSION['user-id']; //to get a current logged in user
     $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $serving = filter_var($_POST['serving'], FILTER_SANITIZE_NUMBER_INT);
     $preptime = filter_var($_POST['preptime'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $cookingtime = filter_var($_POST['cookingtime'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -30,6 +31,8 @@ if (isset($_POST['submit'])) {
     //validate form data
     if (!$title) {
         $_SESSION['add-post'] = "Enter post title";
+    } elseif (!$body) {
+        $_SESSION['add-post'] = "Add a description.";
     } elseif (!$category_id) {
         $_SESSION['add-post'] = "Select the category";
     } elseif (!$ingredient) {
@@ -80,8 +83,8 @@ if (isset($_POST['submit'])) {
             $zero_all_is_featured_result = mysqli_query($con, $zero_all_is_featured_query);
         }
         //insert post into database
-        $query = "INSERT INTO recipes (title, serving, preptime, cookingtime, ingredients, directions, thumbnail, category_id, author_id,is_featured) VALUES
-             ('$title', '$serving', '$preptime', '$cookingtime','$ingredient', '$direction', '$thumbnail_name', $category_id, $author_id, $is_featured)";
+        $query = "INSERT INTO recipes (title, body, serving, preptime, cookingtime, ingredients, directions, thumbnail, category_id, author_id,is_featured) VALUES
+             ('$title','$body' '$serving', '$preptime', '$cookingtime','$ingredient', '$direction', '$thumbnail_name', $category_id, $author_id, $is_featured)";
         $result = mysqli_query($con, $query);
 
         if (mysqli_errno($con)) {

@@ -19,13 +19,19 @@ if (isset($_GET['id'])) {
             unlink($avatar_path);
         }
     }
-    //FOR LATER
+
     //Fetch all thumbnails of user's post and delete them
-
-
-
-
-
+    $thumbnails_query = "SELECT thumbnail FROM recipes WHERE author_id=$id";
+    $thumbnails_result = mysqli_query($con, $thumbnails_query);
+    if (mysqli_num_rows($thumbnails_result) > 0) {
+        while ($thumbnail = mysqli_fetch_assoc($thumbnails_result)) {
+            $thumbnail_path = '../public-images/' . $thumbnail['thumbnail'];
+            //delete thumbnail from images folder is exist
+            if ($thumbnail_path) {
+                unlink($thumbnail_path);
+            }
+        }
+    }
 
     //delete user form db
     $delete_user_query = "DELETE FROM users WHERE id=$id";

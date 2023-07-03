@@ -6,6 +6,7 @@ if (isset($_POST['submit'])) {
     $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
     $previous_thumbnail_name = filter_var($_POST['previous_thumbnail_name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $body = filter_var($_POST['body'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $serving = filter_var($_POST['serving'], FILTER_SANITIZE_NUMBER_INT);
     $preptime = filter_var($_POST['preptime'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $cookingtime = filter_var($_POST['cookingtime'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -20,6 +21,8 @@ if (isset($_POST['submit'])) {
 
     // check and validate input values
     if (!$title) {
+        $_SESSION['edit-post'] = "Couldn't update post. Invalid form data on edit post page.";
+    } elseif (!$body) {
         $_SESSION['edit-post'] = "Couldn't update post. Invalid form data on edit post page.";
     } elseif (!$category_id) {
         $_SESSION['edit-post'] = "Couldn't update post. Invalid form data on edit post page.";
@@ -81,7 +84,7 @@ if (isset($_POST['submit'])) {
         // set thumbnail name if a new one was uploaded, else keep old thumbnail name
         $thumbnail_to_insert = $thumbnail_name ?? $previous_thumbnail_name;
 
-        $query = "UPDATE recipes SET title='$title', serving='$serving',preptime='$preptime',cookingtime='$cookingtime',ingredients='$ingredient',directions='$direction', thumbnail='$thumbnail_to_insert', category_id=$category_id, is_featured=$is_featured WHERE id=$id LIMIT 1";
+        $query = "UPDATE recipes SET title='$title',body='$body', serving='$serving',preptime='$preptime',cookingtime='$cookingtime',ingredients='$ingredient',directions='$direction', thumbnail='$thumbnail_to_insert', category_id=$category_id, is_featured=$is_featured WHERE id=$id LIMIT 1";
         $result = mysqli_query($con, $query);
     }
 

@@ -47,6 +47,7 @@ if (isset($_GET['id'])) {
             <input type="hidden" name="id" value="<?= $post['id'] ?>">
             <input type="hidden" name="previous_thumbnail_name" value="<?= $post['thumbnail'] ?>">
             <input type="text" name="title" value="<?= $post['title'] ?>" placeholder="Recipe Title">
+            <input type="text" name="body" value="<?= $post['body'] ?>" placeholder="Describe your recipe">
             <select name="category">
                 <?php while ($category = mysqli_fetch_assoc($categories)) : ?>
                     <option value="<?= $category['id'] ?>"> <?= $category['title'] ?> </option>

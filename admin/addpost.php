@@ -6,6 +6,7 @@ $categories = mysqli_query($con, $query);
 
 //get back from data if form is invalid
 $title = $_SESSION['add-post-data']['title'] ?? null;
+$body = $_SESSION['add-post-data']['body'] ?? null;
 $serving = $_SESSION['add-post-data']['serving'] ?? null;
 $preptime = $_SESSION['add-post-data']['preptime'] ?? null;
 $cookingtime = $_SESSION['add-post-data']['cookingtime'] ?? null;
@@ -55,6 +56,7 @@ unset($_SESSION['add-post-data']);
         <?php endif ?>
         <form action="<?= ROOT_URL ?>admin/addpost-logic.php" enctype="multipart/form-data" method="POST">
             <input type="text" name="title" value="<?= $title ?>" placeholder="Recipe Title">
+            <input type="text" name="body" value="<?= $body ?>" placeholder="Describe a little bit about your recipe">
             <select name="category">
                 <?php while ($category = mysqli_fetch_assoc($categories)) : ?>
                     <option value="<?= $category['id'] ?>"> <?= $category['title'] ?> </option>
