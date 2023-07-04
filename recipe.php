@@ -36,7 +36,7 @@ $posts = mysqli_query($con, $query);
                 <a href="<?= ROOT_URL ?>category-post.php?id=<?= $featured['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
                 <h2 class="post__title"><a href="<?= ROOT_URL ?>post.php?id<?= $featured['id'] ?>"><?= $featured['title'] ?></a></h2>
                 <p class="post__body">
-                    <?= substr($featured['body'], 0, 300) ?>....
+                    <?= substr($featured['body'], 0, 150) ?> ....
                 </p>
                 <div class="post__author">
                     <?php
@@ -63,39 +63,59 @@ $posts = mysqli_query($con, $query);
     </section>
 <?php endif ?>
 
+<!--================================================ End of Featured Post =================================== -->
+<!--================================================ End of Featured Post =================================== -->
+
 <section class="post">
     <div class="container posts__container">
-        <article class="post">
-            <div class="post__thumbnail">
-                <img src="images/biryani.png ">
-            </div>
-            <div class="post__info">
-                <a href="cat__post.php" class="category__button">Asian</a>
-                <h3 class="post__title"><a href="post.php">Fried Rice
-                    </a>
-                </h3>
-                <p class="post__body">
-                    Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Consequuntur nulla corporis perferendis
-                    quod quo tenetur officiis? Esse nihil molestias voluptate
-                    repellat, sint dolorem, earum possimus obcaecati aperiam
-                    dolore consequatur
-                    blanditiis.
-
-                </p>
-                <div class="post__author">
-                    <div class="post__author-avatar">
-                        <img src="./images/profilepic.png" alt="">
-                    </div>
-                    <div class="post__author-info">
-                        <h5>By: Niang</h5>
-                        <small>June 10,2023</small>
-                    </div>
-
+        <?php while ($post = mysqli_fetch_assoc($posts)) : ?>
+            <article class="post">
+                <div class="post__thumbnail">
+                    <img src="./public-images/<?= $post['thumbnail'] ?> ">
                 </div>
-            </div>
+                <div class="post__info">
 
-        </article>
+                    <?php
+                    //fetch category from categories table using category_id of post
+                    $category_id = $post['category_id'];
+                    $category_query = "SELECT * FROM categories WHERE id=$category_id";
+                    $category_result = mysqli_query($con, $category_query);
+                    $category = mysqli_fetch_assoc($category_result);
+
+                    ?>
+
+                    <a href="<?= ROOT_URL ?>category-post.php?id=<?= $post['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
+                    <h3 class="post__title"><a href="<?= ROOT_URL ?>post.php"><?= $post['title'] ?></a>
+                    </h3>
+                    <p class="post__body">
+                        <?= substr($post['body'], 0, 150) ?> ....
+
+                    </p>
+                    <div class="post__author">
+
+                        <?php
+                        //fetch author from users table 
+                        $author_id = $post['author_id'];
+                        $author_query = "SELECT * FROM users WHERE id= $author_id";
+                        $author_result = mysqli_query($con, $author_query);
+                        $author = mysqli_fetch_assoc($author_result);
+                        ?>
+
+                        <div class="post__author-avatar">
+                            <img src="./public-images/<?= $author['avatar'] ?>" alt="">
+                        </div>
+                        <div class="post__author-info">
+                            <h5>By: <?= "{$author['firstname']} {$author['lastname']}" ?></h5>
+                            <small>
+                                <?= date("M d, Y - H:i", strtotime($post['date_time'])) ?>
+                            </small>
+                        </div>
+
+                    </div>
+                </div>
+
+            </article>
+        <?php endwhile ?>
 
 
     </div>
@@ -104,12 +124,13 @@ $posts = mysqli_query($con, $query);
 <!-- category  -->
 <section class="category__buttons">
     <div class="container category__button-container">
-        <a href="" class="category__button">Burmese</a>
-        <a href="" class="category__button">Asian</a>
-        <a href="" class="category__button">Western</a>
-        <a href="" class="category__button">Deserts</a>
-        <a href="" class="category__button">Cakes</a>
-        <a href="" class="category__button">Drinks</a>
+        <?php
+        $all_categories_query = "SELECT * FROM categories";
+        $all_categories = mysqli_query($con, $all_categories_query);
+        ?>
+        <?php while ($category = mysqli_fetch_assoc($all_categories)) : ?>
+            <a href="<?= ROOT_URL ?>category-post.php?id=<?= $category['title'] ?>" class="category__button"><?= $category['title'] ?></a>
+        <?php endwhile ?>
 
     </div>
 </section>

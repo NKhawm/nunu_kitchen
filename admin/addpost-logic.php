@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
         }
         //insert post into database
         $query = "INSERT INTO recipes (title, body, serving, preptime, cookingtime, ingredients, directions, thumbnail, category_id, author_id,is_featured) VALUES
-             ('$title','$body' '$serving', '$preptime', '$cookingtime','$ingredient', '$direction', '$thumbnail_name', $category_id, $author_id, $is_featured)";
+             ('$title','$body' '$serving', '$preptime', '$cookingtime','$ingredient', '$direction', '$thumbnail_name', '$category_id', '$author_id', '$is_featured')";
         $result = mysqli_query($con, $query);
 
         if (mysqli_errno($con)) {
