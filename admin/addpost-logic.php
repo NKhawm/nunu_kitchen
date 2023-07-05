@@ -19,8 +19,8 @@ if (isset($_POST['submit'])) {
     $serving = filter_var($_POST['serving'], FILTER_SANITIZE_NUMBER_INT);
     $preptime = filter_var($_POST['preptime'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $cookingtime = filter_var($_POST['cookingtime'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $ingredient = filter_var($_POST['ingredient'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $direction = filter_var($_POST['direction'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    // $ingredients = filter_var($_POST['ingredient'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    // $directions = filter_var($_POST['direction'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $category_id = filter_var($_POST['category'], FILTER_SANITIZE_NUMBER_INT);
     $is_featured = filter_var($_POST['is_featured'], FILTER_SANITIZE_NUMBER_INT);
     $thumbnail = $_FILES['thumbnail'];
@@ -35,10 +35,10 @@ if (isset($_POST['submit'])) {
         $_SESSION['add-post'] = "Add a description.";
     } elseif (!$category_id) {
         $_SESSION['add-post'] = "Select the category";
-    } elseif (!$ingredient) {
-        $_SESSION['add-post'] = "Enter ingredients";
-    } elseif (!$direction) {
-        $_SESSION['add-post'] = "Please enter directions";
+        // } elseif (!$ingredients) {
+        //     $_SESSION['add-post'] = "Enter ingredients";
+        // } elseif (!$directions) {
+        //     $_SESSION['add-post'] = "Please enter directions";
     } elseif (!$serving) {
         $_SESSION['add-post'] = "Please enter serving";
     } elseif (!$preptime) {
@@ -83,9 +83,21 @@ if (isset($_POST['submit'])) {
             $zero_all_is_featured_result = mysqli_query($con, $zero_all_is_featured_query);
         }
         //insert post into database
-        $query = "INSERT INTO recipes (title, body, serving, preptime, cookingtime, ingredients, directions, thumbnail, category_id, author_id,is_featured) VALUES
-             ('$title','$body' '$serving', '$preptime', '$cookingtime','$ingredient', '$direction', '$thumbnail_name', '$category_id', '$author_id', '$is_featured')";
+
+        $query = "INSERT INTO recipes (title, body, serving, preptime, cookingtime, thumbnail, category_id, author_id,is_featured) VALUES
+             ('$title','$body', '$serving', '$preptime', '$cookingtime', '$thumbnail_name', '$category_id', '$author_id', '$is_featured')";
         $result = mysqli_query($con, $query);
+        $input_id = $con->insert_id;
+
+        foreach ($_POST['ingredient'] as $key => $value) {
+            if ($key != '') {
+                $ingredient_query = "INSERT INTO ingredients(recipes_id,list)VALUES ('" . $input_id . "','" . $_POST['ingredient'][$key] . "')";
+            }
+        }
+
+        foreach ($_POST['direction'] as $key => $value) {
+            $ingredient_query = "INSERT INTO directions(recipes_id,list)VALUES ('" . $input_id . "','" . $_POST['direction'][$key] . "')";
+        }
 
         if (mysqli_errno($con)) {
             $_SESSION['add-post-success'] = "New post added successfully.";
@@ -94,5 +106,6 @@ if (isset($_POST['submit'])) {
         }
     }
 }
+
 header('location: ' . ROOT_URL . 'admin/addpost.php');
 die();

@@ -65,4 +65,6 @@ $('.list-item').on('click', function() {
     selector: 'textarea#default'
   });
   
+  //adding field dynamically
+  
 

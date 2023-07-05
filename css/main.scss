@@ -130,6 +130,13 @@ section{
 
 }
 
+    .add{
+        //position: relative;
+        padding: 5px;
+        background: $mid-yellow;
+    }
+
+
 
 //=========================================NAV===============================================
 // nav bar
@@ -460,23 +467,23 @@ nav button{
     }
       
     
-    .about__title .join__button .sign__btn{
-        padding:10px;
+    .about__title, .join__button{
+        
+        padding:10px 10px;
         border-radius: 20px;
-        background:$button-color;
+        background:$dark-green;
         //margin:10px 0;
         color:$brand-color;
         cursor: pointer;
       }
-      .join__button .sign__btn:hover{
+      .join__button:hover{
    
             background: $mid-yellow;
             color:$black;
             transition: $transition;
-            
-           
+        }
+   
 
-      }
     .about__image{
         img{
             width:350px;
@@ -508,8 +515,32 @@ nav button{
 
 }
 
-    
+   //=============================add/remove dynamically======================== 
+.my_box{
+    width: 100%;
+    padding-bottom: 30px;
+}
+   #wrap{
+    width:113%;
+    //padding-bottom: 30px;
+}
+.field_box{
+    float: left;
+    width:80%;
+    padding-right: 6px;
+    padding-bottom: 10px;
+}
+.button_box{
+    float: left;
+    width:10%;
+    padding-left:5px;
+    padding-top: 4px;
+}
+.sign__btn{
+    background: transparent;
+    padding: 3px 6px;
 
+}
 
 
 
@@ -664,10 +695,15 @@ nav button{
     text-align: center;
     margin-top: 22px;
 }
-.cooking__ingredients{
+.cooking__ingredients {
     border-left: 5px solid $mid-yellow;
     padding: 16px 0px 18px 25px;
 }
+.cooking__directions {
+    border-left: 5px solid $mid-yellow;
+    padding: 16px 0px 18px 25px;
+}
+  
   
   
   .list-container {
@@ -821,15 +857,7 @@ form{
     }
 
 }
-.textarea__container{
-    width:50%;
-    max-height: 10px;
-}
-#mytextarea{
-    background: transparent;
-    
-    //width:50px;
-}
+
 .form_section{
     width: 40rem;
     margin:auto;
@@ -853,7 +881,7 @@ form{
     color:$brand-color;
     cursor: pointer;
     :hover{
-        background: $mid-yellow;
+        //background: $mid-yellow;
         color:$black;
 
     }
@@ -1214,6 +1242,35 @@ nav button{
        .dashboard main table tr:nth-child(even){
         background: $grey;
        }
+
+    /* ------add remove button -------------*/
+    .my_box{
+        width: 100%;
+        padding-bottom: 30px;
+    }
+       #wrap{
+        width:113%;
+        //padding-bottom: 30px;
+    }
+    .field_box{
+        float: left;
+        width:80%;
+        padding-right: 6px;
+        padding-bottom: 10px;
+    }
+    .button_box{
+        float: left;
+        width:10%;
+        //padding-bottom: 10px;
+        
+    }
+    .sign__btn{
+        background: transparent;
+        padding: 3px ;
+        //padding-bottom: 20px;
+    
+    }
+    
     
 
 

@@ -34,7 +34,7 @@ $posts = mysqli_query($con, $query);
 
                 ?>
                 <a href="<?= ROOT_URL ?>category-post.php?id=<?= $featured['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
-                <h2 class="post__title"><a href="<?= ROOT_URL ?>post.php?id<?= $featured['id'] ?>"><?= $featured['title'] ?></a></h2>
+                <h2 class="post__title"><a href="<?= ROOT_URL ?>post.php?id=<?= $featured['id'] ?>"><?= $featured['title'] ?></a></h2>
                 <p class="post__body">
                     <?= substr($featured['body'], 0, 150) ?> ....
                 </p>
@@ -85,7 +85,7 @@ $posts = mysqli_query($con, $query);
                     ?>
 
                     <a href="<?= ROOT_URL ?>category-post.php?id=<?= $post['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
-                    <h3 class="post__title"><a href="<?= ROOT_URL ?>post.php"><?= $post['title'] ?></a>
+                    <h3 class="post__title"><a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a>
                     </h3>
                     <p class="post__body">
                         <?= substr($post['body'], 0, 150) ?> ....
