@@ -10,8 +10,8 @@ $body = $_SESSION['add-post-data']['body'] ?? null;
 $serving = $_SESSION['add-post-data']['serving'] ?? null;
 $preptime = $_SESSION['add-post-data']['preptime'] ?? null;
 $cookingtime = $_SESSION['add-post-data']['cookingtime'] ?? null;
-$ingredient = $_SESSION['add-post-data']['ingredient'] ?? null;
-$direction = $_SESSION['add-post-data']['direction'] ?? null;
+$ingredients = $_SESSION['add-post-data']['ingredient'] ?? null;
+$directions = $_SESSION['add-post-data']['direction'] ?? null;
 
 //delete form data session
 unset($_SESSION['add-post-data']);
@@ -69,35 +69,14 @@ unset($_SESSION['add-post-data']);
             <input type="text" name="preptime" value="<?= $preptime ?>" placeholder="Prep Time (eg. 30mins)">
             <input type="text" name="cookingtime" value="<?= $cookingtime ?>" placeholder="Cooking Time (eg.45mins)">
 
-            <div id="wrap">
-                <div class="my_box">
-                    <div class="field_box">
-                        <input type="text" name="ingredient[]" value="" placeholder="Add ingredients. (eg. 1 cup of flour.)">
-                    </div>
-                    <div class="button_box">
-                        <button type="button" name="add" id="add" class="sign__btn" onclick="add_more()"><i class="uil uil-plus-square"></i></button>
-                    </div>
 
-                </div>
-            </div>
-            <input type="hidden" id="box_count" value="1">
-
-            <div id="wrap">
-                <div class="my_box">
-                    <div class="field_box">
-                        <input type="text" name="direction[]" value="" placeholder="Add directions. (eg. STEP1: Preheat the oven.)">
-
-                    </div>
-                    <div class="button_box">
-                        <button type="button" name="add" id="add2" class="sign__btn" onclick="add_more2()"><i class="uil uil-plus-square"></i> </button>
-
-                    </div>
-
-                </div>
-            </div>
-            <input type="hidden" id="box_count" value="1">
+            <label for="ingredients" class="control-label">Ingredients</label>
+            <textarea name="ingredient" id="ingredients" cols="30" rows="3" class="tinymce" placeholder="Write the ingredients here." data-height="30vh"></textarea>
 
 
+
+            <label for="directions" class="control-label">Directions</label>
+            <textarea name="direction" id="directions" cols="30" rows="3" class="tynimce" placeholder="Write the ingredients here." data-height="30vh"></textarea>
 
 
             <!-- only show for admin -->
@@ -123,46 +102,6 @@ unset($_SESSION['add-post-data']);
 
 </section>
 
-<!-- add/remove dynamically -->
-
-<script src="jquery-1.4.1.min.js"></script>
-<script>
-    function add_more() {
-        var box_count = jQuery("box_count").val();
-        box_count++;
-        jQuery("#box_count").val(box_count);
-        jQuery("#wrap").append('<div class="my_box" id="box_loop_' + box_count + '"><div class="field_box"><input type="text" name="ingredient[]" value="<?= $ingredient ?>" placeholder="Add ingredients. (eg. 1 cup of flour.)"></div><div class="button_box"><button type="button" name="add" id="add" class="sign__btn" onclick=remove_more("' + box_count + '")><i class="uil uil-trash-alt"></i></button></div></div>');
-
-
-
-    }
-
-    function remove_more(box_count) {
-        jQuery("#box_loop_" + box_count).remove();
-        var box_count = jQuery("box_count").val();
-        box_count--;
-        jQuery("#box_count").val(box_count);
-
-    }
-
-    function add_more2() {
-        var box_count = jQuery("box_count").val();
-        box_count++;
-        jQuery("#box_count").val(box_count);
-        jQuery("#wrap").append('<div class="my_box" id="box_loop_' + box_count + '"><div class="field_box"><input type="text" name="ingredient[]" value="<?= $ingredient ?>" placeholder="Add direction. (eg. Step 1: Preheat the oven.)"></div><div class="button_box"><button type="button" name="add" id="add" class="sign__btn" onclick=remove_more2("' + box_count + '")><i class="uil uil-trash-alt"></i></button></div></div>');
-
-
-
-    }
-
-    function remove_more2(box_count) {
-        jQuery("#box_loop_" + box_count).remove();
-        var box_count = jQuery("box_count").val();
-        box_count--;
-        jQuery("#box_count").val(box_count);
-
-    }
-</script>
 
 
 <?php include "../partials/footer.php"; ?>

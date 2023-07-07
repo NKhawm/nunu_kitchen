@@ -12,12 +12,16 @@ if (isset($_GET['id'])) {
     header('location: ' . ROOT_URL . 'recipe.php');
     die();
 }
+
+
+
 ?>
 <style type="text/css">
     body {
         background-color: #4C5959;
     }
 </style>
+
 <section class="singlepost">
     <div class="container singlepost__container">
         <h2><?= $post['title'] ?></h2>
@@ -65,10 +69,11 @@ if (isset($_GET['id'])) {
                 <p><strong>Cook Time:</strong></p>
                 <p><?= $post['cookingtime'] ?></p>
             </div>
-            <!-- <div>
+            <div>
                 <p><strong>Total Time:</strong></p>
-                <p>30mins</p>
-            </div> -->
+                <p><?= intval($post['preptime']) + intval($post['cookingtime']) . " minutes"; ?></p>
+
+            </div>
             <div>
                 <p><strong>Servings:</strong></p>
                 <p><?= $post['serving'] ?></p>
@@ -79,23 +84,22 @@ if (isset($_GET['id'])) {
         <!-- Ingredients -->
         <div class="cooking__ingredients">
             <h2>Ingredients</h2>
-            <ul>
-                <li>Fish</li>
-            </ul>
-
+            <p><?= htmlspecialchars_decode($post['ingredient']) ?></p>
 
         </div>
 
-        <!-- Cooking direction -->
+
         <div class="cooking__directions">
             <h2>Directions</h2>
-            <ul>
-                <li>Cook the fish</li>
-            </ul>
-
+            <p><?= htmlspecialchars_decode($post['direction']) ?></p>
         </div>
 
     </div>
 
 </section>
+
+
+
+
+
 <?php include "partials/footer.php" ?>

@@ -28,7 +28,7 @@
 
         </article>
         <!-- float image -->
-        <img class="shape-7" src="images/shape-7.png" alt="shape-7">
+        <img class="shape-7" src="<?= ROOT_URL ?>images/shape-7.png" alt="shape-7">
         <article>
             <h4>Useful Links</h4>
             <ul>

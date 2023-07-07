@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
         // set thumbnail name if a new one was uploaded, else keep old thumbnail name
         $thumbnail_to_insert = $thumbnail_name ?? $previous_thumbnail_name;
 
-        $query = "UPDATE recipes SET title='$title',body='$body', serving='$serving',preptime='$preptime',cookingtime='$cookingtime',ingredients='$ingredient',directions='$direction', thumbnail='$thumbnail_to_insert', category_id=$category_id, is_featured=$is_featured WHERE id=$id LIMIT 1";
+        $query = "UPDATE recipes SET title='$title',body='$body', serving='$serving',preptime='$preptime',cookingtime='$cookingtime',ingredient='$ingredient',direction='$direction', thumbnail='$thumbnail_to_insert', category_id=$category_id, is_featured=$is_featured WHERE id=$id LIMIT 1";
         $result = mysqli_query($con, $query);
     }
 
