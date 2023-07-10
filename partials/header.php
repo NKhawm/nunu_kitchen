@@ -8,10 +8,9 @@ if (isset($_SESSION['user-id'])) {
     $result = mysqli_query($con, $query);
     $avatar = mysqli_fetch_assoc($result);
 }
-
-
-
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,24 +36,23 @@ if (isset($_SESSION['user-id'])) {
 
     <nav>
         <div class="container nav__container">
-            <!-- hamburger -->
-            <!-- <span class="burger" onclick="Menu(this)"><i class="uil uil-bars"></i></span> -->
-
+            <button id="open__nav-btn"><i class="uil uil-list-ul"></i></button>
+            <button id="close__nav-btn"><i class="uil uil-multiply"></i></button>
 
             <a href="<?= ROOT_URL ?>index.php" class="nav__logo">
                 <img class="logo" src="<?= ROOT_URL ?>/images/logo.png" alt="brand logo"></a>
+
 
             <ul class="nav__items">
                 <li><a href="<?= ROOT_URL ?>recipe.php">Recipes</a></li>
                 <li><a href="<?= ROOT_URL ?>about.php">About</a></li>
                 <li><a href="<?= ROOT_URL ?>contact.php">Contact</a></li>
+
                 <?php if (isset($_SESSION['user-id'])) :  ?>
                     <li class="nav__profile">
                         <div class="avatar">
                             <img src="<?= ROOT_URL . 'public-images/' . $avatar['avatar']; ?>">
                         </div>
-
-
                         <ul>
                             <li><a href="<?= ROOT_URL ?>admin/index.php">Dashboard</a></li>
                             <li><a href="<?= ROOT_URL ?>logout.php">Logout</a></li>
@@ -63,12 +61,14 @@ if (isset($_SESSION['user-id'])) {
                 <?php else : ?>
                     <li><a href="<?= ROOT_URL ?>signin.php">Signin </a></li>
                 <?php endif ?>
-
             </ul>
-            <button id="open__nav-btn"><i class="uil uil-align"></i></button>
-            <button id="close__nav-btn"><i class="uil uil-multiply"></i></button>
+
+            <?php include 'transalate.php'; ?>
 
 
         </div>
+
+
+
     </nav>
     <!======End of nav=====>

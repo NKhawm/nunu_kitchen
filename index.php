@@ -1,11 +1,14 @@
 <?php
 include 'partials/header.php';
+include 'partials/search_bar.php';
+
 ?>
-<?php include 'partials/search_bar.php'; ?>
 
 <!-- Hero  -->
 <section class="hero">
+    <?php include 'partials/transalate.php'; ?>
     <div class="container container__hero">
+
         <div class="hero__title">
             <h1>Satisfy your cravings</h1>
             <h2>Learn, Share and Create with us.</h2>

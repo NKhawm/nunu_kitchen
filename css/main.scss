@@ -89,7 +89,8 @@ h2{
     margin: 1rem 0;
 }
 h3{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    color:$brand-color;
     margin: 0.8rem 0 0.5rem;
 }
 h4{
@@ -117,18 +118,7 @@ section{
     width: 5rem;
 }
 
-.removeIngredient {
 
-    background: transparent;
-    color: $brand-color;
-    font-family: inherit;
-}
-.removeDirection{
-    background: transparent;
-    color: $brand-color;
-    font-family: inherit;
-
-}
 
     .add{
         //position: relative;
@@ -141,92 +131,182 @@ section{
 //=========================================NAV===============================================
 // nav bar
 
-nav{
-    background:$header-footer;
-    width: 100vw;
-    height: 4.5rem;
-    position:fixed;
-    top:0;
-    z-index:10;
-    box-shadow:0 1rem 1rem rgba(0, 0, 0, 0.2) ;
-    }
+// nav{
+//     background:$header-footer;
+//     width: 100vw;
+//     height: 4.5rem;
+//     position:fixed;
+//     top:0;
+//     z-index:10;
+//     box-shadow:0 1rem 1rem rgba(0, 0, 0, 0.2) ;
+//     }
 
    
-nav button{
+//     .open__nav-btn, .close__nav-btn{
+//     display: none;
+// }
+
+// .nav__container{
+//     height:100%;
+//     display: flex;
+//     align-items: center;
+//     justify-content:space-between;
+// }
+ 
+// .avatar{
+//     width:2.5rem;
+//     height: 2.5rem;
+//     border-radius: 50%;
+//     overflow: hidden;
+//     border: 0.2rem solid $header-footer;
+// }
+ 
+//  .nav__logo{
+//      font-weight:600;
+     
+    
+//  }
+
+// .uil-bars{
+//     background:none;
+// }
+  
+// .nav__items{
+//     display:flex;
+//     align-items: center;
+//     gap:4rem;
+// }
+ 
+
+// .nav__profile{
+//     position: relative;
+//     cursor:pointer;
+//     ul{
+//         position:absolute;
+//         top:105%;
+//         right:0;
+//         display: flex;
+//         flex-direction: column;
+//         box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.4);
+//         visibility: hidden;
+//         opacity: 0;
+//         transition: $transition;
+       
+//         li {
+//             a{
+//                 padding:1rem;
+//                 background: $dark-green;
+//                 display:block;
+//                 width: 100%;
+                
+//             }
+//         }
+
+//     }
+// }
+// .nav__profile ul li:last-child a {
+//     background: $brand-color;
+//     color:$header-footer;
+    
+// }
+// .nav__profile:hover > ul {
+//     visibility: visible;
+//     opacity: 1;
+
+// }
+
+// =========================================== Nav Bar =============================================================== //
+nav {
+    background: $header-footer;
+    width: 100vw;
+    height: 4.5rem;
+    position: fixed;
+    top:0;
+    z-index:10;
+    box-shadow: 0 1rem 1rem $dark-green;
+}
+
+nav button {
     display:none;
 }
 
 .nav__container{
-    height:100%;
-    display: flex;
+    height: 100%;
+    display:flex;
     align-items: center;
-    justify-content:space-between;
+    justify-content: space-between;
+
 }
- 
-.avatar{
-    width:3rem;
-    height: 3rem;
+
+.avatar {
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     overflow: hidden;
-    border: 0.2rem solid $header-footer;
+    border: 0.1rem solid $black;
 }
- 
- .nav__logo{
-     font-weight:600;
-     
+
+.nav__items{
+    display: flex;
+    align-items: center;
+    gap:4rem;
+    font-size: 16px;
+}
+
+.nav__profile {
+    position: relative;
+    cursor: pointer;
+    ul{
+        position: absolute;
+        top:140%;
+        right:0;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 3rem 3rem $black;
+        visibility: hidden;
+        opacity: 0;
+        transition: $transition;
+    }
+}
+
+//show nav ul when hover
+.nav__profile:hover > ul {
+    visibility: visible;
+    opacity: 1;
+}
+.nav__profile ul li a {
+    padding:1rem;
+    background: $header-footer;
+    display: block;
+    width: 100%;
+}
+
+.nav__profile ul li:last-child a {
+    background: $dark-green;
     
- }
- .uil{
+}
+.uil{
     color:$brand-color;
     background: transparent;
     font-size: 26px;
  }
-  
-.nav__items{
-    display:flex;
+ .uil-bar{
+    background:$header-footer;
+ }
+ #google_element {
+    width: 12%;
+    //background: $mid-yellow;
     align-items: center;
-    gap:4rem;
-}
- 
-
-.nav__profile{
-    position: relative;
-    cursor:pointer;
-    ul{
-        position:absolute;
-        top:105%;
-        right:0;
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.4);
-        visibility: hidden;
-        opacity: 0;
-        transition: $transition;
-       
-        li {
-            a{
-                padding:1rem;
-                background: $dark-green;
-                display:block;
-                width: 100%;
-                
-            }
-        }
-
-    }
-}
-.nav__profile ul li:last-child a{
-    background: $brand-color;
-    color:$header-footer;
+    padding:8px 3px;
+    position:absolute;
+    margin-left: 10px;
+    margin-top: 20px;
     
-}
-.nav__profile:hover > ul {
-    visibility: visible;
-    opacity: 1;
-
-}
-
-
+  
+    color:$brand-color;
+    font-family: inherit;
+    
+ }
 
 //===========================================create button =============================================//
 .create__container{
@@ -262,14 +342,14 @@ nav button{
      top:8.8rem;
     // left:28rem;
     text-align: center;
-    width: 30rem;
+    width: 40rem;
     background: $dark-green;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
-    padding: 0.6rem 1rem;
+    padding: 0.3rem 1rem;
     border-radius: 10px;
     
 }
@@ -283,10 +363,13 @@ nav button{
     background: transparent;
     
     margin-left: 0.7rem;
-    padding:0.5rem 0;
+    padding:0.5rem 1rem;
     width: 100%;
     font-family:inherit;
     
+}
+.search__input{
+    border:none;
 }
 
 
@@ -443,7 +526,7 @@ nav button{
 
 //=========================================================ABOUT ==============================================///
 .about{
-    background: $brand-color;
+    background: $dark-green;
     width:100vw;
     height: auto;
     margin:0 auto;
@@ -459,19 +542,17 @@ nav button{
     .about__title{
         h1{
             font-family:$text-second;
-            color:$dark-green;
+            //color:$dark-green;
         }
-        p{
-            color:$dark-green;
-        }
+       
     }
       
     
-    .about__title, .join__button{
+     .join__button{
         
         padding:10px 10px;
         border-radius: 20px;
-        background:$dark-green;
+        background:$button-color;
         //margin:10px 0;
         color:$brand-color;
         cursor: pointer;
@@ -515,27 +596,6 @@ nav button{
 
 }
 
-   //=============================add/remove dynamically======================== 
-.my_box{
-    width: 100%;
-    padding-bottom: 30px;
-}
-   #wrap{
-    width:113%;
-    //padding-bottom: 30px;
-}
-.field_box{
-    float: left;
-    width:80%;
-    padding-right: 6px;
-    padding-bottom: 10px;
-}
-.button_box{
-    float: left;
-    width:10%;
-    padding-left:5px;
-    padding-top: 4px;
-}
 .sign__btn{
     background: transparent;
     padding: 3px 6px;
@@ -587,6 +647,7 @@ nav button{
     border-radius:0.3rem;
     font-weight: 0.8rem;
     text-align: center;
+    color:$brand-color;
    }
     .category__button:hover {
         color:$black;
@@ -595,7 +656,7 @@ nav button{
  
     //================================================General post===================================// 
     .post__thumbnail{
-        border: 0.5rem solid $button-color;
+        border: 0.3rem solid $button-color;
         border-radius: 20px;
         overflow: hidden;
         margin-bottom: 1.6rem;
@@ -604,6 +665,7 @@ nav button{
     .post:hover .post__thumbnail img{
         filter:saturate(0);
         transition:filter 500ms ease;
+        cursor: pointer;
     }
 
     .post__author{
@@ -618,6 +680,10 @@ nav button{
         border-radius: 10px;
         overflow: hidden;
     
+    }
+    .post__title{
+        font-size: larger;
+        color:$brand-color;
     }
 
 
@@ -656,6 +722,8 @@ nav button{
     padding:4rem 0;
     border-top:2px solid $grey;
     border-bottom: 2px solid $grey;
+    font-family: inherit;
+    color:$brand-color;
 
 }
 .category__button-container{
@@ -1123,7 +1191,7 @@ nav button{
     position: absolute;
     flex-direction: column;
     top:100%;
-    left:0;
+    right:0;
     //background: $mid-yellow;
     width:12rem;
     align-items:flex-start;
@@ -1183,7 +1251,11 @@ nav button{
     border:0;
   }
 
-
+/* search bar */
+.search__bar-container{
+    width: 30rem;
+    padding: 0 1.6rem;
+}
 /*index hero*/
 .hero__image{
     width: 50px;
@@ -1243,33 +1315,7 @@ nav button{
         background: $grey;
        }
 
-    /* ------add remove button -------------*/
-    .my_box{
-        width: 100%;
-        padding-bottom: 30px;
-    }
-       #wrap{
-        width:113%;
-        //padding-bottom: 30px;
-    }
-    .field_box{
-        float: left;
-        width:80%;
-        padding-right: 6px;
-        padding-bottom: 10px;
-    }
-    .button_box{
-        float: left;
-        width:10%;
-        //padding-bottom: 10px;
-        
-    }
-    .sign__btn{
-        background: transparent;
-        padding: 3px ;
-        //padding-bottom: 20px;
     
-    }
     
     
 

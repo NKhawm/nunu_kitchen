@@ -55,9 +55,9 @@ if (isset($_GET['id'])) {
 
         <!-- post reaction -->
         <div class="post__reaction">
-            <i class="uil uil-heart"></i>
-            <i class="uil uil-favorite"></i>
-            <i class="uil uil-share"></i>
+            <!-- <span><i class="uil uil-heart"></i>Love</span> -->
+            <span><i class="uil uil-favorite"></i>Add to favourite</span>
+            <span><i class="uil uil-share"></i>Share</span>
         </div>
         <!-- short info -->
         <div class="info">

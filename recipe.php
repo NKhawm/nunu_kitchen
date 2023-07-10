@@ -8,7 +8,7 @@ $featured_result = mysqli_query($con, $featured_query);
 $featured = mysqli_fetch_assoc($featured_result);
 
 //fetch 9 post from recipes table
-$query = "SELECT * FROM recipes ORDER BY date_time DESC LIMIT 9";
+$query = "SELECT * FROM recipes ORDER BY date_time DESC";
 $posts = mysqli_query($con, $query);
 
 ?>
@@ -66,7 +66,7 @@ $posts = mysqli_query($con, $query);
 <!--================================================ End of Featured Post =================================== -->
 <!--================================================ End of Featured Post =================================== -->
 
-<section class="post">
+<section class="post <?= $featured ? '' : 'section__extra-margin' ?>">
     <div class="container posts__container">
         <?php while ($post = mysqli_fetch_assoc($posts)) : ?>
             <article class="post">
@@ -129,7 +129,7 @@ $posts = mysqli_query($con, $query);
         $all_categories = mysqli_query($con, $all_categories_query);
         ?>
         <?php while ($category = mysqli_fetch_assoc($all_categories)) : ?>
-            <a href="<?= ROOT_URL ?>category-post.php?id=<?= $category['title'] ?>" class="category__button"><?= $category['title'] ?></a>
+            <a href="<?= ROOT_URL ?>category-post.php?id=<?= $category['id'] ?>" class="category__button"><?= $category['title'] ?></a>
         <?php endwhile ?>
 
     </div>
