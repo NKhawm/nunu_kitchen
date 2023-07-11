@@ -57,12 +57,15 @@ $form-width:40%;
 }
 body{
     font-family: $text-font-stack;
-    line-height: 1.6;
+    line-height: 1.9;
     //background: $brand-color;
     overflow-x: hidden;
     color:$brand-color;
     
 
+}
+p{
+    font-size: 18px;
 }
 ul li a{
     color:$brand-color;
@@ -89,7 +92,7 @@ h2{
     margin: 1rem 0;
 }
 h3{
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color:$brand-color;
     margin: 0.8rem 0 0.5rem;
 }
@@ -107,13 +110,7 @@ img{
     width:100%;
     object-fit: cover;
 }
-p{
-    font-size: 17px;
-    line-height: 10px;
-}
 
-
-   
 section{
     margin-top: 3rem;
     width:100vw;
@@ -131,24 +128,95 @@ section{
     }
 
 
+// =========================================== Nav Bar =============================================================== //
+ nav {
+    background: $header-footer;
+    width: 100vw;
+    height: 4.5rem;
+    position: fixed;
+    top:0;
+    z-index:10;
+    box-shadow: 0 1rem 1rem $dark-green;
+}
 
-//=========================================NAV===============================================
-// nav bar
-/*-----nav-------*/
+nav button {
+    display: inline-block;
+    font-size: 1.5rem;
+    background:transparent;
+    color:$brand-color;
+    cursor: pointer;
+}
+
+.nav__container{
+    height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.1rem solid $black;
+}
+
+// .nav__items{
+//     display: flex;
+//     align-items: center;
+//     gap:4rem;
+//     font-size: 16px;
+// }
+
+// .nav__profile {
+//     position: relative;
+//     cursor: pointer;
+//     ul{
+//         position: absolute;
+//         top:140%;
+//         right:0;
+//         display: flex;
+//         flex-direction: column;
+//         box-shadow: 0 3rem 3rem $black;
+//         visibility: hidden;
+//         opacity: 0;
+//         transition: $transition;
+//     }
+// }
+
+//show nav ul when hover
+.nav__profile:hover > ul {
+    visibility: visible;
+    opacity: 1;
+}
+.nav__profile ul li a {
+    padding:1rem;
+    background: $header-footer;
+    display: block;
+    width: 100%;
+}
+
+.nav__profile ul li:last-child a {
+    background: $dark-green;
+    
+}
+.uil{
+    color:$brand-color;
+    background: transparent;
+    font-size: 26px;
+ }
+ .uil-bar{
+    background:$header-footer;
+ }
 
 .uil{
     font-size: 31px;
 }
 
 
-nav button{
-display: inline-block;
-font-size: 1.5rem;
-background:transparent;
-color:$brand-color;
-cursor: pointer;
 
-}
 
 nav button#close__nav-btn{
 display:none;
@@ -162,7 +230,7 @@ position:relative;
 position: absolute;
 flex-direction: column;
 top:100%;
-right:0;
+left:0;
 //background: $mid-yellow;
 width:12rem;
 align-items:flex-start;
@@ -221,85 +289,6 @@ ul{
 margin-left:2rem;
 border:0;
 }
-
-// =========================================== Nav Bar =============================================================== //
-// nav {
-//     background: $header-footer;
-//     width: 100vw;
-//     height: 4.5rem;
-//     position: fixed;
-//     top:0;
-//     z-index:10;
-//     box-shadow: 0 1rem 1rem $dark-green;
-// }
-
-// nav button {
-//     display:none;
-// }
-
-// .nav__container{
-//     height: 100%;
-//     display:flex;
-//     align-items: center;
-//     justify-content: space-between;
-
-// }
-
-// .avatar {
-//     width: 2.5rem;
-//     height: 2.5rem;
-//     border-radius: 50%;
-//     overflow: hidden;
-//     border: 0.1rem solid $black;
-// }
-
-// .nav__items{
-//     display: flex;
-//     align-items: center;
-//     gap:4rem;
-//     font-size: 16px;
-// }
-
-// .nav__profile {
-//     position: relative;
-//     cursor: pointer;
-//     ul{
-//         position: absolute;
-//         top:140%;
-//         right:0;
-//         display: flex;
-//         flex-direction: column;
-//         box-shadow: 0 3rem 3rem $black;
-//         visibility: hidden;
-//         opacity: 0;
-//         transition: $transition;
-//     }
-// }
-
-// //show nav ul when hover
-// .nav__profile:hover > ul {
-//     visibility: visible;
-//     opacity: 1;
-// }
-// .nav__profile ul li a {
-//     padding:1rem;
-//     background: $header-footer;
-//     display: block;
-//     width: 100%;
-// }
-
-// .nav__profile ul li:last-child a {
-//     background: $dark-green;
-    
-// }
-// .uil{
-//     color:$brand-color;
-//     background: transparent;
-//     font-size: 26px;
-//  }
-//  .uil-bar{
-//     background:$header-footer;
-//  }
 
 
 //===========================================create button =============================================//
