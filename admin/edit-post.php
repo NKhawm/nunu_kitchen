@@ -41,7 +41,7 @@ if (isset($_GET['id'])) {
 
         <img src="https://source.unsplash.com/1600x900/?food" alt="unplash images">
     </div> -->
-    <div class="container form__section-container">
+    <div class="container ">
 
         <form action="<?= ROOT_URL ?>admin/edit-post-logic.php" enctype="multipart/form-data" method="POST">
             <input type="hidden" name="id" value="<?= $post['id'] ?>">

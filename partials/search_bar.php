@@ -1,5 +1,5 @@
 <section class="search__bar">
-    <!-- <img class="nature-12" src="images/nature-12.png" alt="banana"> -->
+    <img class="nature-12" src="images/nature-12.png" alt="banana">
     <img class="nature-1" src="images/nature-1.png" alt="strawberry">
 
 
@@ -11,6 +11,5 @@
         <button type="submit" name="submit" class="btn">Go</button>
 
     </form>
-    <?php include 'partials/transalate.php'; ?>
 
 </section>

@@ -6,7 +6,7 @@ include 'partials/search_bar.php';
 
 <!-- Hero  -->
 <section class="hero">
-    <?php include 'partials/transalate.php'; ?>
+
     <div class="container container__hero">
 
         <div class="hero__title">
@@ -28,7 +28,7 @@ include 'partials/search_bar.php';
 </section>
 
 <!-- Marquee -->
-<section class="marquee__section">
+<!-- <section class="marquee__section">
 
     <div class="marquee">
         <div class="marquee-content">
@@ -64,7 +64,7 @@ include 'partials/search_bar.php';
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- ABOUT -->
 <section class="about">

@@ -42,7 +42,7 @@ unset($_SESSION['add-post-data']);
     <!-- adding ingredients -->
 
     <!-- <div class="container form__section-container"> -->
-    <div class="container">
+    <div class="container ">
         <?php if (isset($_SESSION['add-post'])) : ?>
             <div class="alert__message error">
                 <p>
