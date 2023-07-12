@@ -332,7 +332,7 @@ border:0;
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
-    padding: 0.3rem 1rem;
+    padding: 0rem 1rem;
     border-radius: 10px;
     
 }
@@ -669,6 +669,66 @@ border:0;
         color:$brand-color;
     }
 
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 200px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color:$header-footer;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid $black;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .close,
+    .close1  {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+  
+
+    .close:hover,
+    .close:focus,
+    .close1:hover,
+    .close1:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .social{
+        display: flex;
+        justify-content:center;
+        gap:30px;
+      
+    }
+    
+
 
     
 //====================================================Featured===========================================// 
@@ -697,6 +757,7 @@ border:0;
     grid-template-columns: repeat(3, 1fr);
     gap:5rem;
 }
+
 
 
 
@@ -734,12 +795,17 @@ border:0;
 
 }
 .post__reaction{
+    //border:1px solid $brand-color;
     display:flex ;
     justify-content:center;
     gap:15px;
     text-align: center;
     
 }
+
+
+
+
 .info{
     display: grid;
     grid-template-columns: 1fr 1fr;

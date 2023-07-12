@@ -55,12 +55,80 @@ if (isset($_GET['id'])) {
 
         <!-- post reaction -->
         <div class="post__reaction">
-            <!-- <span><i class="uil uil-heart"></i>Love</span> -->
-            <span><i class="uil uil-favorite"></i>Add to favourite</span>
-            <span><i class="uil uil-share"></i>Share</span>
+            <div>
+                <span>Print<i class="uil uil-print" onclick="window.print()"></i></span>
+            </div>
+            <div>
+                <span>Add to favourite <a href=" #"><i class="uil uil-heart"></i></a></span>
+            </div>
+            <div>
+                <span>Write a review<i class="uil uil-comment-alt-message" id="myBtn"></i></span>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p>Write your review</p>
+                        <div class="review">
+                            <input type="text">
+                            <br><br>
+                            <button class="btn">Send</button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div>
+                <span>Share<i class="uil uil-share-alt" id="my-btn"></i></span>
+                <div id="my-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close1">&times;</span>
+                        <p>share</p>
+                        <div class="social">
+
+                            <!-- <a class="facebook" target="blank"><i class="uil uil-facebook"></i></a>
+                            <a class="twitter" target="blank"><i class="uil uil-twitter"></i></a>
+                            <a class="linkedin" target="blank"><i class="uil uil-linkedin"></i></a>
+                            <a class="reddit" target="blank"><i class="uil uil-reddit-alien-alt"></i></a>
+                            <a class="whatsapp" target="blank"><i class="uil uil-whatsapp-alt"></i></a>
+                            <a class="discord" target="blank"><i class="uil uil-discord"></i></a>
+                            <a class="telegram" target="blank"><i class="uil uil-telegram"></i></a> -->
+
+                            <?php
+                            // Get the current page URL
+                            $currentPageUrl = urlencode($_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+
+                            // Define the social media platforms and their respective URLs
+                            $socialMedia = [
+                                'facebook' => 'https://www.facebook.com/sharer/sharer.php?u=' . $currentPageUrl,
+                                'twitter' => 'https://twitter.com/share?url=' . $currentPageUrl,
+                                'linkedin' => 'https://www.linkedin.com/shareArticle?url=' . $currentPageUrl,
+                                //'reddit' => 'https://www.reddit.com/submit?url=' . $currentPageUrl,
+                                'whatsapp' => 'whatsapp://send?text=' . $currentPageUrl,
+                                'discord' => 'https://discord.com/login?redirect_to=' . $currentPageUrl,
+                                'telegram' => 'https://t.me/share/url?url=' . $currentPageUrl
+                            ];
+
+                            // Generate the social media sharing links
+                            foreach ($socialMedia as $platform => $url) {
+                                echo '<a class="' . $platform . '" target="_blank" href="' . $url . '"><i class="uil uil-' . $platform . '"></i></a>';
+                            }
+                            ?>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
+
+
         <!-- short info -->
-        <div class="info">
+        <div class=" info">
             <div>
                 <p><strong>Prep Time:</strong></p>
                 <p><?= $post['preptime'] ?></p>
@@ -97,6 +165,76 @@ if (isset($_GET['id'])) {
     </div>
 
 </section>
+
+<!-- script for modal -->
+<script>
+    //---------- modal for review------------- //
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    /* modal for social media sharing */
+
+    var moDal = document.getElementById("my-modal");
+
+    // Get the button that opens the modal
+    var btN = document.getElementById("my-btn");
+
+    // Get the <span> element that closes the modal
+    var spann = document.getElementsByClassName("close1")[0];
+
+    // When the user clicks the button, open the modal 
+    btN.onclick = function() {
+        moDal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    spann.onclick = function() {
+        moDal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == moDal) {
+            modal.style.display = "none";
+        }
+    }
+
+    //     // sharing links
+    //     const link = encodeURI(window.location.href);
+    //     const msg = encodeURIComponent('Check this recipe out!');
+    //     const title = encodeURIComponent(document.querySlector('title').textContent);
+    //     //facebook
+    //     const fb = document.querySlector('.facebook');
+    //     fb.href = `https://www.facebook.com/share.php?u=${link}`;
+    //     //twitter
+    //     const twitter = document.querySelector('.twitter');
+    // twitter.href = `http://twitter.com/share?&url=${link}&text=${msg}&hashtags=javascript,programming`;
+    //     //linkedin
+    //     const linkedIn = document.querySelector('.linkedin');
+    //     linkedIn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${link}`;
+</script>
 
 
 
