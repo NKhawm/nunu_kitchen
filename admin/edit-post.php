@@ -61,10 +61,10 @@ if (isset($_GET['id'])) {
             <input type="text" name="cookingtime" value="<?= $post['cookingtime'] ?>" placeholder="Cooking Time (eg.45mins)">
 
             <label for="ingredients" class="control-label">Ingredients</label>
-            <textarea name="ingredient" id="ingredients" cols="30" rows="3" class="tinymce" placeholder="Write the ingredients here." data-height="30vh"></textarea>
+            <textarea name="ingredient" id="ingredients" cols="30" rows="3" class="textarea tinymce" placeholder="Write the ingredients here." data-height="30vh"></textarea>
 
             <label for="directions" class="control-label">Directions</label>
-            <textarea name="direction" id="directions" cols="30" rows="3" class="tynimce" placeholder="Write the ingredients here." data-height="30vh"></textarea>
+            <textarea name="direction" id="directions" cols="30" rows="3" class=" textarea tynimce" placeholder="Write the ingredients here." data-height="30vh"></textarea>
 
             <!-- only show for admin -->
             <?php if (isset($_SESSION['user_is_admin'])) : ?>

@@ -108,6 +108,7 @@ a{
 img{
     display: block;
     width:100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -136,7 +137,7 @@ section{
     position: fixed;
     top:0;
     z-index:10;
-    box-shadow: 0 1rem 1rem $dark-green;
+    //box-shadow: 0 1rem 1rem $dark-green;
 }
 
 nav button {
@@ -170,21 +171,21 @@ nav button {
 //     font-size: 16px;
 // }
 
-// .nav__profile {
-//     position: relative;
-//     cursor: pointer;
-//     ul{
-//         position: absolute;
-//         top:140%;
-//         right:0;
-//         display: flex;
-//         flex-direction: column;
-//         box-shadow: 0 3rem 3rem $black;
-//         visibility: hidden;
-//         opacity: 0;
-//         transition: $transition;
-//     }
-// }
+.nav__profile {
+    position: relative;
+    cursor: pointer;
+    ul{
+        position: absolute;
+        top:140%;
+        //right:0;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 3rem 3rem $black;
+        visibility: hidden;
+        opacity: 0;
+        transition: $transition;
+    }
+}
 
 //show nav ul when hover
 .nav__profile:hover > ul {
@@ -192,14 +193,17 @@ nav button {
     opacity: 1;
 }
 .nav__profile ul li a {
-    padding:1rem;
+    margin:0;
+    padding:1.3rem;
     background: $header-footer;
     display: block;
+    color:$brand-color;
     width: 100%;
 }
 
 .nav__profile ul li:last-child a {
     background: $dark-green;
+    color:$brand-color;
     
 }
 .uil{
@@ -277,7 +281,7 @@ animation-delay: 600ms;
 }
 
 .nav__profile{
-background:$brand-color;
+//background:$brand-color;
 ul{
     top:100%;
     width: 100%;
@@ -286,7 +290,7 @@ ul{
 }
 
 .nav__profile .avatar{
-margin-left:2rem;
+margin-left:1.5rem;
 border:0;
 }
 
@@ -314,15 +318,18 @@ border:0;
 //========================================search bar==========================================///
  .search__bar{
      width: 100%;
-     height: 16rem;
-     background: $brand-color;
+     height: 20rem;
+     background-image: url("../images/strawberry.jpg");
+     background-size: cover;
+     background-position: center center;
      margin:0 auto;
+     opacity: 0.8;
      
     
  }
  .search__bar-container{
     position:relative;
-     top:8.8rem;
+     top:10.8rem;
     // left:28rem;
     text-align: center;
     width: 40rem;
@@ -358,7 +365,7 @@ border:0;
 
 .btn{
     display: inline-block;
-    //width: fit-content;
+    width: fit-content;
     padding:0.4rem 1rem;
     font-family: inherit;
     background-color: $button-color;
@@ -415,7 +422,7 @@ border:0;
 .hero{
     background: $dark-green;
     width:100vw;
-    height: 400vw;
+    height: auto;
     margin:0 auto;
     .container__hero{
         display:flex;
@@ -726,6 +733,25 @@ border:0;
         justify-content:center;
         gap:30px;
       
+    }
+    #wrapper .uil-heart:active{
+        color:$red;
+
+
+    }
+    hr{
+        color:$black;
+    }
+    .post__container{
+        //border: 3px solid $brand-color;
+        padding:2rem;
+    }
+    .display{
+        padding-left: 60px;
+        padding-bottom: 20px;
+        p{
+            font-size: 16px;
+        }
     }
     
 

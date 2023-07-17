@@ -1,4 +1,5 @@
 <?php
+
 include "partials/header.php";
 include "partials/search_bar.php";
 
@@ -23,6 +24,17 @@ if (isset($_GET['id'])) {
 </style>
 
 <section class="singlepost">
+    <?php if (isset($_SESSION['add-review-post-success'])) : // shows if review post was successful
+    ?>
+        <div class="alert__message success container">
+            <p>
+                <?= $_SESSION['add-review-post-success'];
+                unset($_SESSION['add-review-post-success']);
+                ?>
+            </p>
+
+        </div>
+    <?php endif ?>
     <div class="container singlepost__container">
         <h2><?= $post['title'] ?></h2>
         <!-- author -->
@@ -58,29 +70,51 @@ if (isset($_GET['id'])) {
             <div>
                 <span>Print<i class="uil uil-print" onclick="window.print()"></i></span>
             </div>
-            <div>
-                <span>Add to favourite <a href=" #"><i class="uil uil-heart"></i></a></span>
+            <div id="wrapper">
+                <span>Add to favorite <i class="uil uil-heart"></i></span>
             </div>
+
+            <!-- <script>
+                const button = document.querySelector("#wrapper .uil-heart");
+                button.onclick = () => {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("GET", "favourite.php?userid=1&recipeid=1", true);
+                    xhr.onload = () => {
+                        if (xhr.readyState === XMLHttpRequest.DONE) {
+                            if (xhr.status === 200) {
+                                button.classList.toggle("active");
+                            }
+                        }
+                    }
+                    xhr.send();
+                }
+            </script> -->
+
+
+
+            <!-- WRITE A REVIEW -->
+
             <div>
-                <span>Write a review<i class="uil uil-comment-alt-message" id="myBtn"></i></span>
+                <span>Write a review <i class="uil uil-comment-alt-message" id="myBtn"></i></span>
                 <div id="myModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
-                        <p>Write your review</p>
-                        <div class="review">
-                            <input type="text">
-                            <br><br>
-                            <button class="btn">Send</button>
+                        <p>Leave your review</p>
+                        <form method="post" action="" class="review">
+                            <textarea name="comment"></textarea>
 
-                        </div>
+                            <button type="submit" name="submit" class="btn">Send</button>
+
+                        </form>
+
                     </div>
 
                 </div>
 
             </div>
-
+            <!-- Social media sharing -->
             <div>
-                <span>Share<i class="uil uil-share-alt" id="my-btn"></i></span>
+                <span>Share <i class="uil uil-share-alt" id="my-btn"></i></span>
                 <div id="my-modal" class="modal">
                     <div class="modal-content">
                         <span class="close1">&times;</span>
@@ -165,10 +199,75 @@ if (isset($_GET['id'])) {
     </div>
 
 </section>
+<hr>
+
+<!-- Review  -->
+<section class="review">
+    <?php
+    if (isset($_POST['submit_review'])) {
+        $name = $_POST['name'];
+        $review = $_POST['comment'];
+        $review_sql = "INSERT INTO reviews (name,comment) VALUES ('$name','$review')";
+
+        if ($con->query($review_sql) === TRUE) {
+            echo "Review added successfully!";
+        } else {
+            echo "Error: " . $review_sql . "<br>" . $con->error;
+        }
+    }
+
+    ?>
+    <div class="container">
+        <?php if (isset($_SESSION['add-review-post'])) : ?>
+            <div class="alert__message sucess lg">
+                <p><?= $_SESSION['add-review-post-success'];
+                    unset($_SESSION['add-review-post-success']);
+                    ?>
+                </p>
+            </div>
+            <br>
+
+        <?php endif ?>
+        <h2 style="text-align: center;">Write your Reviews</h2>
+
+
+        <div class="post__container">
+            <form action="" method="POST">
+                <input type="text" name="name" placeholder="Enter Your Name..">
+                <textarea name="comment" placeholder="Write your review for public"></textarea>
+                <button type="submit" name="submit_review" class="btn">Post </button>
+            </form>
+
+        </div>
+
+    </div>
+    <br>
+    <h4 style="text-decoration:underline;" class="container">12 reviews</h4>
+    <div class=" container display">
+        <?php
+        $display_sql = "SELECT * FROM reviews";
+        $display_result = $con->query($display_sql);
+        if ($display_result->num_rows > 0) {
+            while ($row = $display_result->fetch_assoc()) {
+
+
+
+
+        ?>
+
+                <p><b><?= $row['name'] ?>: </b></p>
+                <p><?= $row['comment'] ?></p>
+
+        <?php }
+        } ?>
+
+    </div>
+
+
+</section>
 
 <!-- script for modal -->
 <script>
-    //---------- modal for review------------- //
     var modal = document.getElementById("myModal");
 
     // Get the button that opens the modal
@@ -220,23 +319,7 @@ if (isset($_GET['id'])) {
             modal.style.display = "none";
         }
     }
-
-    //     // sharing links
-    //     const link = encodeURI(window.location.href);
-    //     const msg = encodeURIComponent('Check this recipe out!');
-    //     const title = encodeURIComponent(document.querySlector('title').textContent);
-    //     //facebook
-    //     const fb = document.querySlector('.facebook');
-    //     fb.href = `https://www.facebook.com/share.php?u=${link}`;
-    //     //twitter
-    //     const twitter = document.querySelector('.twitter');
-    // twitter.href = `http://twitter.com/share?&url=${link}&text=${msg}&hashtags=javascript,programming`;
-    //     //linkedin
-    //     const linkedIn = document.querySelector('.linkedin');
-    //     linkedIn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${link}`;
 </script>
-
-
 
 
 

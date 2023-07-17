@@ -71,12 +71,12 @@ unset($_SESSION['add-post-data']);
 
 
             <label for="ingredients" class="control-label">Ingredients</label>
-            <textarea name="ingredient" id="ingredients" cols="30" rows="3" class="tinymce" placeholder="Write the ingredients here." data-height="30vh"></textarea>
+            <textarea name="ingredient" id="ingredients" cols="30" rows="3" class=" textarea tinymce" placeholder="Write the ingredients here." data-height="30vh"></textarea>
 
 
 
             <label for="directions" class="control-label">Directions</label>
-            <textarea name="direction" id="directions" cols="30" rows="3" class="tynimce" placeholder="Write the ingredients here." data-height="30vh"></textarea>
+            <textarea name="direction" id="directions" cols="30" rows="3" class=" textarea tynimce" placeholder="Write the ingredients here." data-height="30vh"></textarea>
 
 
             <!-- only show for admin -->
