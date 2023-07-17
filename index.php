@@ -27,44 +27,6 @@ include 'partials/search_bar.php';
     </div>
 </section>
 
-<!-- Marquee -->
-<!-- <section class="marquee__section">
-
-    <div class="marquee">
-        <div class="marquee-content">
-
-            <div class="marquee-item">
-                <img src="images/biryani.png" width="" height="" alt="">
-                <p>Chicken Biryani</p>
-            </div>
-
-            <div class="marquee-item">
-                <img src="images/beefstew.png" width="" height="" alt="">
-                <p>Beef Stew</p>
-            </div>
-
-            <div class="marquee-item">
-                <img src="images/dumpling.png" width="" height="" alt="">
-                <p>Dumpling</p>
-            </div>
-
-            <div class="marquee-item">
-                <img src="images/friedrice.png" width="" height="" alt="">
-                <p>Fried Rice</p>
-            </div>
-
-            <div class="marquee-item">
-                <img src="images/ramen.png" width="" height="" alt="ramen">
-                <p>Ramen</p>
-            </div>
-
-            <div class="marquee-item">
-                <img src="images/icepop.png" alt="">
-                <p>Ice Pop</p>
-            </div>
-        </div>
-    </div>
-</section> -->
 
 <!-- ABOUT -->
 <section class="about">
@@ -90,6 +52,74 @@ include 'partials/search_bar.php';
         </div>
 
 
+    </div>
+</section>
+
+
+<!-- Marquee -->
+<section class="marquee__section">
+
+    <div class="marquee">
+        <div class="marquee-content">
+
+            <div class="marquee-item">
+                <img src="images/sebastian-coman-photography--hM0-PSO3FY-unsplash.jpg" width="" height="" alt="">
+                <p>Ice Cream</p>
+            </div>
+
+            <div class="marquee-item">
+                <img src="images/tatiana-lapina-qpf2glK0bAA-unsplash.jpg" width="" height="" alt="">
+                <p>Macarons</p>
+            </div>
+
+            <div class="marquee-item">
+                <img src="images/strawberry.jpg" width="" height="" alt="">
+                <p>Strawberry </p>
+            </div>
+
+            <div class="marquee-item">
+                <img src="images/brenda-godinez-MsTOg6rhRVk-unsplash.jpg" width="" height="" alt="">
+                <p>Kiwi Yogurt</p>
+            </div>
+
+            <div class="marquee-item">
+                <img src="images/jason-leung-X_-utfkjE7Y-unsplash.jpg" width="" height="" alt="ramen">
+                <p>Ramen</p>
+            </div>
+
+            <div class="marquee-item">
+                <img src="images/lindsay-moe-sKM8RK2C-YI-unsplash.jpg" alt="">
+                <p>Ice Pop</p>
+            </div>
+            <div class="marquee-item">
+                <img src="images/beefstew.png" alt="">
+                <p>Beef Stew</p>
+            </div>
+            <div class="marquee-item">
+                <img src="images/focused-on-you-grDcbeK2MRY-unsplash.jpg" alt="">
+                <p>Egg Fried Noodle</p>
+            </div>
+            <div class="marquee-item">
+                <img src="images/dessert.jpg" alt="">
+                <p>Pavlova</p>
+            </div>
+            <div class="marquee-item">
+                <img src="images/bananatree.jpg" alt="">
+                <p>Banana Smoothie</p>
+            </div>
+            <div class="marquee-item">
+                <img src="images/dumpling.png" alt="">
+                <p>Dumplings</p>
+            </div>
+            <div class="marquee-item">
+                <img src="images/obi-pixel7propix-kdB88FBL8bs-unsplash.jpg" alt="">
+                <p>Fried Rice</p>
+            </div>
+            <div class="marquee-item">
+                <img src="images/max-griss-YpfRCe5lda0-unsplash.jpg" alt="">
+                <p>Chicken Coconut Noodles</p>
+            </div>
+        </div>
     </div>
 </section>
 
