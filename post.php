@@ -70,44 +70,31 @@ if (isset($_GET['id'])) {
             <div>
                 <span>Print<i class="uil uil-print" onclick="window.print()"></i></span>
             </div>
-            <div id="wrapper">
-                <span>Add to favorite <i class="uil uil-heart"></i></span>
+            <!-- Add the heart icon (favorite button) -->
+
+            <!-- Display the heart icon for "Add to Favorite" -->
+            <div class="favorite-icon <?= $is_favorite ? 'favorited' : '' ?>">
+                <a href="favourites.php?recipe_id=<?= $post['id'] ?>">
+                    Add to Favourite<i class="uil uil-heart"></i>
+                </a>
             </div>
-
-            <!-- <script>
-                const button = document.querySelector("#wrapper .uil-heart");
-                button.onclick = () => {
-                    let xhr = new XMLHttpRequest();
-                    xhr.open("GET", "favourite.php?userid=1&recipeid=1", true);
-                    xhr.onload = () => {
-                        if (xhr.readyState === XMLHttpRequest.DONE) {
-                            if (xhr.status === 200) {
-                                button.classList.toggle("active");
-                            }
-                        }
-                    }
-                    xhr.send();
-                }
-            </script> -->
-
-
 
             <!-- WRITE A REVIEW -->
 
             <div>
-                <span>Write a review <i class="uil uil-comment-alt-message" id="myBtn"></i></span>
+                <span>Write a review <a href="#review"><i class="uil uil-comment-alt-message" id="myBtn"></i></a></span>
                 <div id="myModal" class="modal">
-                    <div class="modal-content">
+                    <!-- <div class="modal-content">
                         <span class="close">&times;</span>
-                        <p>Leave your review</p>
+                         <p>Leave your review</p>
                         <form method="post" action="" class="review">
                             <textarea name="comment"></textarea>
 
                             <button type="submit" name="submit" class="btn">Send</button>
 
-                        </form>
+                        </form> 
 
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -120,14 +107,6 @@ if (isset($_GET['id'])) {
                         <span class="close1">&times;</span>
                         <p>share</p>
                         <div class="social">
-
-                            <!-- <a class="facebook" target="blank"><i class="uil uil-facebook"></i></a>
-                            <a class="twitter" target="blank"><i class="uil uil-twitter"></i></a>
-                            <a class="linkedin" target="blank"><i class="uil uil-linkedin"></i></a>
-                            <a class="reddit" target="blank"><i class="uil uil-reddit-alien-alt"></i></a>
-                            <a class="whatsapp" target="blank"><i class="uil uil-whatsapp-alt"></i></a>
-                            <a class="discord" target="blank"><i class="uil uil-discord"></i></a>
-                            <a class="telegram" target="blank"><i class="uil uil-telegram"></i></a> -->
 
                             <?php
                             // Get the current page URL
@@ -202,7 +181,7 @@ if (isset($_GET['id'])) {
 <hr>
 
 <!-- Review  -->
-<section class="review">
+<section id="review">
     <?php
     if (isset($_POST['submit_review'])) {
         $name = $_POST['name'];
@@ -249,10 +228,6 @@ if (isset($_GET['id'])) {
         $display_result = $con->query($display_sql);
         if ($display_result->num_rows > 0) {
             while ($row = $display_result->fetch_assoc()) {
-
-
-
-
         ?>
 
                 <p><b><?= $row['name'] ?>: </b></p>
@@ -268,30 +243,30 @@ if (isset($_GET['id'])) {
 
 <!-- script for modal -->
 <script>
-    var modal = document.getElementById("myModal");
+    // var modal = document.getElementById("myModal");
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
+    // // Get the button that opens the modal
+    // var btn = document.getElementById("myBtn");
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+    // // Get the <span> element that closes the modal
+    // var span = document.getElementsByClassName("close")[0];
 
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
+    // // When the user clicks the button, open the modal 
+    // btn.onclick = function() {
+    //     modal.style.display = "block";
+    // }
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
+    // // When the user clicks on <span> (x), close the modal
+    // span.onclick = function() {
+    //     modal.style.display = "none";
+    // }
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+    // // When the user clicks anywhere outside of the modal, close it
+    // window.onclick = function(event) {
+    //     if (event.target == modal) {
+    //         modal.style.display = "none";
+    //     }
+    // }
 
     /* modal for social media sharing */
 
