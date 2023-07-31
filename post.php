@@ -66,6 +66,7 @@ if (isset($_GET['id'])) {
         </div>
 
         <!-- post reaction -->
+
         <div class="post__reaction">
             <div>
                 <span>Print<i class="uil uil-print" onclick="window.print()"></i></span>
@@ -84,17 +85,7 @@ if (isset($_GET['id'])) {
             <div>
                 <span>Write a review <a href="#review"><i class="uil uil-comment-alt-message" id="myBtn"></i></a></span>
                 <div id="myModal" class="modal">
-                    <!-- <div class="modal-content">
-                        <span class="close">&times;</span>
-                         <p>Leave your review</p>
-                        <form method="post" action="" class="review">
-                            <textarea name="comment"></textarea>
 
-                            <button type="submit" name="submit" class="btn">Send</button>
-
-                        </form> 
-
-                    </div> -->
 
                 </div>
 
@@ -138,6 +129,7 @@ if (isset($_GET['id'])) {
             </div>
 
         </div>
+
 
 
         <!-- short info -->
@@ -243,31 +235,6 @@ if (isset($_GET['id'])) {
 
 <!-- script for modal -->
 <script>
-    // var modal = document.getElementById("myModal");
-
-    // // Get the button that opens the modal
-    // var btn = document.getElementById("myBtn");
-
-    // // Get the <span> element that closes the modal
-    // var span = document.getElementsByClassName("close")[0];
-
-    // // When the user clicks the button, open the modal 
-    // btn.onclick = function() {
-    //     modal.style.display = "block";
-    // }
-
-    // // When the user clicks on <span> (x), close the modal
-    // span.onclick = function() {
-    //     modal.style.display = "none";
-    // }
-
-    // // When the user clicks anywhere outside of the modal, close it
-    // window.onclick = function(event) {
-    //     if (event.target == modal) {
-    //         modal.style.display = "none";
-    //     }
-    // }
-
     /* modal for social media sharing */
 
     var moDal = document.getElementById("my-modal");

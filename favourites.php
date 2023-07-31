@@ -1,5 +1,12 @@
 <?php
 include "partials/header.php";
+if (!isset($_SESSION['user-id'])) {
+?> <div class="alert__message error lg" style="padding-top:100px;">
+        <p>Please login to continue </p>
+    </div>
+<?php
+    exit();
+}
 
 
 if (isset($_SESSION['user-id'])) {
