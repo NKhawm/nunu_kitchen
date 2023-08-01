@@ -81,4 +81,3 @@ unset($_SESSION['signup-data']);
         <img src="https://source.unsplash.com/1600x900/?food" alt="unsplash images">
     </div>
 </section>
-<?php include "partials/footer.php"; ?>

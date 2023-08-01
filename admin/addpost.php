@@ -93,6 +93,11 @@ unset($_SESSION['add-post-data']);
                 <input type="file" name="thumbnail" id="thumbnail">
             </div>
 
+            <div class="form__control">
+                <label for="video">Upload Video</label>
+                <input type="file" name="video" id="thumbnail">
+            </div>
+
             <button type="submit" name="submit" class="btn button">+ Submit Recipe</button>
 
         </form>

@@ -5,14 +5,25 @@ $query = "SELECT r.id, r.title, r.category_id, c.title AS category_title
           JOIN categories AS c ON r.category_id = c.id
           ORDER BY r.id DESC";
 $posts = mysqli_query($con, $query);
+if (isset($_SESSION['user-id'])) {
+    $user_id = $_SESSION['user-id'];
 
+    // Fetch the user's information from the database
+    $query = "SELECT * FROM users WHERE id = $user_id";
+    $result = mysqli_query($con, $query);
+    $user_info = mysqli_fetch_assoc($result);
+}
 ?>
+
+
 <style type="text/css">
     body {
         background-color: #4C5959;
     }
 </style>
+
 <section class="dashboard">
+    <h2 style="text-align: center;">Welcome "<?= $user_info['firstname'] ?>"</h2>
     <?php if (isset($_SESSION['add-post-success'])) : // shows if add post was successful
     ?>
         <div class="alert__message success container">
@@ -52,6 +63,7 @@ $posts = mysqli_query($con, $query);
     <?php endif ?>
 
     <div class="container dashboard__container">
+
         <button id="show__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-right-b"></i></button>
         <button id="hide__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-left-b"></i></button>
         <aside>

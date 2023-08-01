@@ -12,8 +12,7 @@ include 'partials/search_bar.php';
         <div class="hero__title">
             <h1>Satisfy your cravings</h1>
             <h2>Learn, Share and Create with us.</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Quas dolore obcaecati repudiandae sint natus, distinctio repellat? Aut commodi, voluptatum maxime eaque facilis mollitia expedita officia omnis quidem quae, adipisci nulla.</p>
+            <p>Here, we celebrate the joy of cooking and the art of bringing people together through food. Our community members not only share their favorite recipes but also their passion for cooking, making this a place where cooking becomes a delightful journey of discovery and creativity.</p>
             <br>
 
             <a class="browse__recipe" href="<?= ROOT_URL ?>recipe.php">Browse Recipes</a>

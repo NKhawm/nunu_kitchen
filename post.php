@@ -3,6 +3,7 @@
 include "partials/header.php";
 include "partials/search_bar.php";
 
+
 //fetch post data from db if the id is set
 if (isset($_GET['id'])) {
     $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
@@ -69,14 +70,14 @@ if (isset($_GET['id'])) {
 
         <div class="post__reaction">
             <div>
-                <span>Print<i class="uil uil-print" onclick="window.print()"></i></span>
+                <span>Print<i class="uil uil-print" onclick="window.print()" id="print_btn"></i></span>
             </div>
             <!-- Add the heart icon (favorite button) -->
 
             <!-- Display the heart icon for "Add to Favorite" -->
             <div class="favorite-icon <?= $is_favorite ? 'favorited' : '' ?>">
-                <a href="favourites.php?recipe_id=<?= $post['id'] ?>">
-                    Add to Favourite<i class="uil uil-heart"></i>
+                Add to Favourite<a href="favourites.php?recipe_id=<?= $post['id'] ?>">
+                    <i class="uil uil-heart"></i>
                 </a>
             </div>
 
@@ -100,6 +101,7 @@ if (isset($_GET['id'])) {
                         <div class="social">
 
                             <?php
+
                             // Get the current page URL
                             $currentPageUrl = urlencode($_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
@@ -173,66 +175,7 @@ if (isset($_GET['id'])) {
 <hr>
 
 <!-- Review  -->
-<section id="review">
-    <?php
-    if (isset($_POST['submit_review'])) {
-        $name = $_POST['name'];
-        $review = $_POST['comment'];
-        $review_sql = "INSERT INTO reviews (name,comment) VALUES ('$name','$review')";
-
-        if ($con->query($review_sql) === TRUE) {
-            echo "Review added successfully!";
-        } else {
-            echo "Error: " . $review_sql . "<br>" . $con->error;
-        }
-    }
-
-    ?>
-    <div class="container">
-        <?php if (isset($_SESSION['add-review-post'])) : ?>
-            <div class="alert__message sucess lg">
-                <p><?= $_SESSION['add-review-post-success'];
-                    unset($_SESSION['add-review-post-success']);
-                    ?>
-                </p>
-            </div>
-            <br>
-
-        <?php endif ?>
-        <h2 style="text-align: center;">Write your Reviews</h2>
-
-
-        <div class="post__container">
-            <form action="" method="POST">
-                <input type="text" name="name" placeholder="Enter Your Name..">
-                <textarea name="comment" placeholder="Write your review for public"></textarea>
-                <button type="submit" name="submit_review" class="btn">Post </button>
-            </form>
-
-        </div>
-
-    </div>
-    <br>
-    <h4 style="text-decoration:underline;" class="container">12 reviews</h4>
-    <div class=" container display">
-        <?php
-        $display_sql = "SELECT * FROM reviews";
-        $display_result = $con->query($display_sql);
-        if ($display_result->num_rows > 0) {
-            while ($row = $display_result->fetch_assoc()) {
-        ?>
-
-                <p><b><?= $row['name'] ?>: </b></p>
-                <p><?= $row['comment'] ?></p>
-
-        <?php }
-        } ?>
-
-    </div>
-
-
-</section>
-
+<?php include "review.php" ?>
 <!-- script for modal -->
 <script>
     /* modal for social media sharing */
