@@ -13,6 +13,7 @@ if (isset($_POST['submit'])) {
     $category_id = filter_var($_POST['category'], FILTER_SANITIZE_NUMBER_INT);
     $is_featured = filter_var($_POST['is_featured'], FILTER_SANITIZE_NUMBER_INT);
     $thumbnail = $_FILES['thumbnail'];
+    $video = $_FILES['video'];
 
     //set is_featured to 0 if unchecked
     $is_featured = $is_featured == 1 ?: 0;
@@ -60,30 +61,55 @@ if (isset($_POST['submit'])) {
             $_SESSION['add-post'] = "File type error, should only be jpg,png or jpeg.";
         }
     }
-    //redirect back with form data to add post page if error occurs
-    if (isset($_SESSION['add-post'])) {
-        $_SESSION['add-post-data'] = $_POST;
-        header('location: ' . ROOT_URL . 'admin/addpost.php');
-        die();
-    } else {
-        // set is_featured of all post to 0 if this post is 1
-        if ($is_featured == 1) {
-            $zero_all_is_featured_query = "UPDATE recipes SET is_featured=0";
-            $zero_all_is_featured_result = mysqli_query($con, $zero_all_is_featured_query);
-        }
-        //insert post into database
+    // Check if a video file is selected
+    if ($video['name']) {
+        // Rename the video file
+        $time = time();
+        $video_name = $time . $video['name'];
+        $video_tmp = $video['tmp_name'];
+        $video_destination_path = '../videos/' . $video_name;
 
-        $query = "INSERT INTO recipes (title, body, serving, preptime, cookingtime, thumbnail, ingredient, direction, category_id, author_id,is_featured) VALUES
-              ('$title','$body', '$serving', '$preptime', '$cookingtime', '$thumbnail_name', '$ingredients', '$directions',  $category_id, $author_id, $is_featured)";
-        $result = mysqli_query($con, $query);
+        // Make sure file is a video
+        $allowed_v_files = ['mp4', 'mov', 'avi', 'mkv'];
+        $v_extension = strtolower(pathinfo($video_name, PATHINFO_EXTENSION));
 
-        if (mysqli_errno($con)) {
-            $_SESSION['add-post-success'] = "New post added successfully.";
-            header('location: ' . ROOT_URL . '/admin');
-            die();
+        if (in_array($v_extension, $allowed_v_files)) {
+            // Make sure video is not too big
+            if ($video['size'] < 250_000_000) {
+                // Upload video
+                move_uploaded_file($video_tmp, $video_destination_path);
+            } else {
+                $_SESSION['add-post'] = "Video size is too big, should be less than 50mb.";
+            }
+        } else {
+            $_SESSION['add-post'] = "File type error, should only be mp4, mov, avi, or mkv.";
         }
     }
 }
+//redirect back with form data to add post page if error occurs
+if (isset($_SESSION['add-post'])) {
+    $_SESSION['add-post-data'] = $_POST;
+    header('location: ' . ROOT_URL . 'admin/addpost.php');
+    die();
+} else {
+    // set is_featured of all post to 0 if this post is 1
+    if ($is_featured == 1) {
+        $zero_all_is_featured_query = "UPDATE recipes SET is_featured=0";
+        $zero_all_is_featured_result = mysqli_query($con, $zero_all_is_featured_query);
+    }
+    //insert post into database
+
+    $query = "INSERT INTO recipes (title, body, serving, preptime, cookingtime, thumbnail, ingredient, direction, category_id, author_id, is_featured, video) VALUES
+              ('$title','$body', '$serving', '$preptime', '$cookingtime', '$thumbnail_name', '$ingredients', '$directions',  $category_id, $author_id, $is_featured, '$video_name')";
+    $result = mysqli_query($con, $query);
+
+    if (mysqli_errno($con)) {
+        $_SESSION['add-post-success'] = "New post added successfully.";
+        header('location: ' . ROOT_URL . '/admin');
+        die();
+    }
+}
+
 
 
 

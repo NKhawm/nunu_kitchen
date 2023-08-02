@@ -1,20 +1,41 @@
-<?php include "partials/header.php";
+<?php
 
-$query = "SELECT r.id, r.title, r.category_id, c.title AS category_title
-          FROM recipes AS r
-          JOIN categories AS c ON r.category_id = c.id
-          ORDER BY r.id DESC";
-$posts = mysqli_query($con, $query);
+include "partials/header.php";
+
+
 if (isset($_SESSION['user-id'])) {
     $user_id = $_SESSION['user-id'];
+    $user_is_admin = isset($_SESSION['user_is_admin']);
 
     // Fetch the user's information from the database
     $query = "SELECT * FROM users WHERE id = $user_id";
     $result = mysqli_query($con, $query);
     $user_info = mysqli_fetch_assoc($result);
-}
-?>
 
+    // Fetch posts based on user role
+    if ($user_is_admin) {
+        // Fetch all posts for admin
+        $query = "SELECT r.id, r.title, r.category_id, c.title AS category_title
+                  FROM recipes AS r
+                  JOIN categories AS c ON r.category_id = c.id
+                  ORDER BY r.id DESC";
+    } else {
+        // Fetch only user's posts for non-admin users
+        $query = "SELECT r.id, r.title, r.category_id, c.title AS category_title
+                  FROM recipes AS r
+                  JOIN categories AS c ON r.category_id = c.id
+                  WHERE r.author_id = $user_id
+                  ORDER BY r.id DESC";
+    }
+
+    $posts = mysqli_query($con, $query);
+} else {
+    // User is not logged in, redirect to login or homepage
+    header('location: ' . ROOT_URL . 'recipe.php');
+    die();
+}
+
+?>
 
 <style type="text/css">
     body {
@@ -23,7 +44,7 @@ if (isset($_SESSION['user-id'])) {
 </style>
 
 <section class="dashboard">
-    <h2 style="text-align: center;">Welcome "<?= $user_info['firstname'] ?>"</h2>
+    <h2 style="text-align: center;">Welcome "<?= $user_info['firstname'] ?></h2>
     <?php if (isset($_SESSION['add-post-success'])) : // shows if add post was successful
     ?>
         <div class="alert__message success container">
@@ -63,10 +84,10 @@ if (isset($_SESSION['user-id'])) {
     <?php endif ?>
 
     <div class="container dashboard__container">
-
         <button id="show__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-right-b"></i></button>
         <button id="hide__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-left-b"></i></button>
         <aside>
+
             <ul>
                 <li>
                     <a href="addpost.php"><i class="uil uil-pen"></i>

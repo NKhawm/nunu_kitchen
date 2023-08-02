@@ -13,9 +13,12 @@ if (isset($_GET['id'])) {
         $post = mysqli_fetch_assoc(($result));
         $thumbnail_name = $post['thumbnail'];
         $thumbnail_path = '../public-images/' . $thumbnail_name;
+        $video_name = $post['video'];
+        $video_path = '../videos/' . $video_name;
 
-        if ($thumbnail_path) {
+        if ($thumbnail_path && $video_path) {
             unlink($thumbnail_path);
+            unlink($video_path);
 
             //delete post from db
             $delete_post_query = "DELETE FROM recipes WHERE id=$id LIMIT 1";

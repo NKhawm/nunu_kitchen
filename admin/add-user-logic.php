@@ -64,6 +64,8 @@ if (isset($_POST['submit'])) {
         }
     }
 
+
+
     //redirect back to signup page if there is problem
     if (isset($_SESSION['add-user'])) {
         //pass form data back to signup

@@ -171,7 +171,12 @@ if (isset($_GET['id'])) {
 
     </div>
 
+    <div class="siglepost__video">
+        <video src="videos/<?= $post['video'] ?>" type="video/mp4" controls></video>
+    </div>
+
 </section>
+
 <hr>
 
 <!-- Review  -->
