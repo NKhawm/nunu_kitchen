@@ -1240,8 +1240,10 @@ footer{
                 }
                 //bottom:11rem;
             }
-            .footer__email{
-                display: flex;
+            .footer__email form{
+                display:inline;
+               
+                
             }
             .input__email{
                margin: 6px 0;
@@ -1253,24 +1255,13 @@ footer{
                 font-family: inherit;
                 
             }
-            .uil-message{
-               width: 4rem;
-               //max-height: 2rem;
-                background:none;
-                border-radius: 10px;
-                //position: sticky;
-                color:$brand-color;
-                font-size: 23px;
-                position:relative ;
-                rotate: -30deg;
-               right:50px;
-                
-
-                //rotate: -20deg;
-                cursor:pointer;
-               
-
-            }
+            // .uil-message{
+         
+            //       right:200px;
+            //       position: absolute;
+            //       bottom:252px;
+            //       cursor:pointer;
+            //    }
 
 //=======================================Media Queries (MEDIUM)========================================
 //=======================================Media Queries (MEDIUM)========================================

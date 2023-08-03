@@ -15,6 +15,8 @@ if (isset($_POST['submit'])) {
     $category_id = filter_var($_POST['category'], FILTER_SANITIZE_NUMBER_INT);
     $is_featured = filter_var($_POST['is_featured'], FILTER_SANITIZE_NUMBER_INT);
     $thumbnail = $_FILES['thumbnail'];
+    $video = $_FILES['video'];
+    $url = filter_var($_POST['url']);
 
     // set is_featured to 0 if it was unchecked
     $is_featured = $is_featured == 1 ?: 0;
@@ -69,30 +71,56 @@ if (isset($_POST['submit'])) {
         }
     }
 
+    // Check if a video file is selected
+    if ($video['name']) {
+        // Rename the video file
+        $time = time();
+        $video_name = $time . $video['name'];
+        $video_tmp = $video['tmp_name'];
+        $video_destination_path = '../videos/' . $video_name;
 
-    if ($_SESSION['edit-post']) {
-        // redirect to manage form page if form was invalid
-        header('location: ' . ROOT_URL . 'admin/');
-        die();
-    } else {
-        // set is_featured of all posts to 0 if is_featured for this post is 1
-        if ($is_featured == 1) {
-            $zero_all_is_featured_query = "UPDATE recipes SET is_featured=0";
-            $zero_all_is_featured_result = mysqli_query($con, $zero_all_is_featured_query);
+        // Make sure file is a video
+        $allowed_v_files = ['mp4', 'mov', 'avi', 'mkv'];
+        $v_extension = strtolower(pathinfo($video_name, PATHINFO_EXTENSION));
+
+        if (in_array($v_extension, $allowed_v_files)) {
+            // Make sure video is not too big
+            if ($video['size'] < 250_000_000) {
+                // Upload video
+                move_uploaded_file($video_tmp, $video_destination_path);
+            } else {
+                $_SESSION['edit-post'] = "Video size is too big, should be less than 50mb.";
+            }
+        } else {
+            $_SESSION['edit-post'] = "File type error, should only be mp4, mov, avi, or mkv.";
         }
-
-        // set thumbnail name if a new one was uploaded, else keep old thumbnail name
-        $thumbnail_to_insert = $thumbnail_name ?? $previous_thumbnail_name;
-
-        $query = "UPDATE recipes SET title='$title',body='$body', serving='$serving',preptime='$preptime',cookingtime='$cookingtime',ingredient='$ingredient',direction='$direction', thumbnail='$thumbnail_to_insert', category_id=$category_id, is_featured=$is_featured WHERE id=$id LIMIT 1";
-        $result = mysqli_query($con, $query);
-    }
-
-
-    if (!mysqli_errno($con)) {
-        $_SESSION['edit-post-success'] = "Post updated successfully";
     }
 }
+
+
+if ($_SESSION['edit-post']) {
+    // redirect to manage form page if form was invalid
+    header('location: ' . ROOT_URL . 'admin/');
+    die();
+} else {
+    // set is_featured of all posts to 0 if is_featured for this post is 1
+    if ($is_featured == 1) {
+        $zero_all_is_featured_query = "UPDATE recipes SET is_featured=0";
+        $zero_all_is_featured_result = mysqli_query($con, $zero_all_is_featured_query);
+    }
+
+    // set thumbnail name if a new one was uploaded, else keep old thumbnail name
+    $thumbnail_to_insert = $thumbnail_name ?? $previous_thumbnail_name;
+
+    $query = "UPDATE recipes SET title='$title',body='$body', serving='$serving',preptime='$preptime',cookingtime='$cookingtime',ingredient='$ingredient',direction='$direction', thumbnail='$thumbnail_to_insert', category_id=$category_id, is_featured=$is_featured WHERE id=$id LIMIT 1";
+    $result = mysqli_query($con, $query);
+}
+
+
+if (!mysqli_errno($con)) {
+    $_SESSION['edit-post-success'] = "Post updated successfully";
+}
+
 
 header('location: ' . ROOT_URL . 'admin/');
 die();

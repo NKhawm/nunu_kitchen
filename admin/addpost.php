@@ -97,6 +97,12 @@ unset($_SESSION['add-post-data']);
                 <label for="video">Upload Video</label>
                 <input type="file" name="video" id="video">
             </div>
+            (or)
+            <div class="form__control">
+                <label for="video">Video Url</label>
+                <input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size="30" />
+            </div>
+
 
             <button type="submit" name="submit" class="btn button">+ Submit Recipe</button>
 

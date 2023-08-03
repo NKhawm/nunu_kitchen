@@ -79,6 +79,15 @@ if (isset($_GET['id'])) {
                 <label for="thumbnail">Change Thumbnail</label>
                 <input type="file" name="thumbnail" id="thumbnail">
             </div>
+            <div class="form__control">
+                <label for="video">Upload Video</label>
+                <input type="file" name="video" id="video">
+            </div>
+            (or)
+            <div class="form__control">
+                <label for="video">Video Url</label>
+                <input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size="30" />
+            </div>
 
             <button type="submit" name="submit" class="btn">Update Recipe</button>
 

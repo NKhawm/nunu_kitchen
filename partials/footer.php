@@ -64,7 +64,7 @@
                 <form action="" method="POST">
                     <input class="input__email" type="text" name="mailing_list" placeholder="enter your email here">
 
-                    <button type="submit" name="submit_list" class="uil uil-message"></button>
+                    <button type="submit" name="submit_list" class="btn">Join</button>
                 </form>
             </div>
             <p>Join our newsletter to stay up to date on features and releases</p>

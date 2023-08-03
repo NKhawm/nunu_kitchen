@@ -14,6 +14,7 @@ if (isset($_POST['submit'])) {
     $is_featured = filter_var($_POST['is_featured'], FILTER_SANITIZE_NUMBER_INT);
     $thumbnail = $_FILES['thumbnail'];
     $video = $_FILES['video'];
+    $url = filter_var($_POST['url']);
 
     //set is_featured to 0 if unchecked
     $is_featured = $is_featured == 1 ?: 0;
@@ -99,8 +100,8 @@ if (isset($_SESSION['add-post'])) {
     }
     //insert post into database
 
-    $query = "INSERT INTO recipes (title, body, serving, preptime, cookingtime, thumbnail, ingredient, direction, category_id, author_id, is_featured, video) VALUES
-              ('$title','$body', '$serving', '$preptime', '$cookingtime', '$thumbnail_name', '$ingredients', '$directions',  $category_id, $author_id, $is_featured, '$video_name')";
+    $query = "INSERT INTO recipes (title, body, serving, preptime, cookingtime, thumbnail, ingredient, direction, category_id, author_id, is_featured, video, video_url) VALUES
+              ('$title','$body', '$serving', '$preptime', '$cookingtime', '$thumbnail_name', '$ingredients', '$directions',  $category_id, $author_id, $is_featured, '$video_name','$url')";
     $result = mysqli_query($con, $query);
 
     if (mysqli_errno($con)) {

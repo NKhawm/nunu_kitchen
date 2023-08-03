@@ -18,6 +18,9 @@ if (isset($_SESSION['user-id'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Nunu'sKitchen: Where Food Lovers Share Their Culinary Creations">
+    <meta name="description" content="Discover Myanmar tradtional recipes and a world of delightful flavors and culinary inspirations at NunuKitchen, a user-generated website where food enthusiasts come together to share their favorite recipes, cooking tips, and gastronomic adventures.">
+
     <!-- css -->
     <link rel="stylesheet" href="<?= ROOT_URL ?>css/main.css">
     <!-- icons -->
