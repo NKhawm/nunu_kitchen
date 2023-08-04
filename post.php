@@ -172,13 +172,18 @@ if (isset($_GET['id'])) {
     </div>
     <?php if (isset($post['video_url']) && !empty($post['video_url'])) { ?>
         <div class="siglepost__video">
-            <button class="btn"><a style="color:#D2E0CF ;" href="<?= $post['video_url'] ?>">Click Here for Video Link</a></button>
+            <button class="btn"><a style="color:#D2E0CF;" href="<?= $post['video_url'] ?>">Click Here for Video Link</a></button>
         </div>
-    <?php } else { ?>
+    <?php } elseif (isset($post['video']) && !empty($post['video'])) { ?>
         <div class="siglepost__video">
             <video src="videos/<?= $post['video'] ?>" type="video/mp4" controls></video>
         </div>
+    <?php } else { ?>
+        <div class="siglepost__video">
+            <p>No video available for this post.</p>
+        </div>
     <?php } ?>
+
 
 
 
