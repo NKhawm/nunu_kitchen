@@ -652,8 +652,7 @@ border:0;
         border: 0.3rem solid $button-color;
         border-radius: 20px;
         overflow: hidden;
-        width: 300px;
-        height: 250px;
+        
         margin-bottom: 1.6rem;
         
     }
@@ -694,6 +693,14 @@ border:0;
             letter-spacing: 0.2rem;
         }
         
+    }
+    .post {
+        .post__thumbnail {
+            img{
+                width: 300px;
+                height: 250px;
+            }
+        }
     }
     .post__title a{
         text-transform:uppercase;
@@ -1419,23 +1426,9 @@ footer{
     background: $header-footer;
 }
 
-//  .dashboard__container .sidebar__toggle{
-//     display: inline block;
-//     background:$button-color;
-//     color:$white;
-//     position:fixed;
-//     left:0;
-//     z-index:1;
-//     bottom:4rem;
-//     width: 2.5rem;
-//     height: 2.5rem;
-//     border-radius: 50% 0 0 50%;
-//     font-size: 1.3rem;
-//     cursor:pointer;
-//     box-shadow: -1rem 0 2rem black;
+
    
 
-//  }
  
 .dashboard aside a h5{
     display: none;
