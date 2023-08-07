@@ -462,6 +462,9 @@ border:0;
             width:350px;
             height: 350px;
             border-radius: 50%;
+           @media screen and (max-width: 600px) {
+        display: none;
+    }
             
             
         }
@@ -480,12 +483,18 @@ border:0;
     background: $brand-color;
     height: auto;
     position: relative;
+   @media screen and (max-width: 600px) {
+        display: none;
+    }
     
 }
 .marquee-content{
     display: flex;
     position: relative;
     animation: scrolling 20s linear infinite;
+   @media screen and (max-width: 600px) {
+        display: none;
+    }
     
 
 }
